@@ -1,0 +1,9 @@
+{
+  "presets": ["env", "react"],
+  "sourceMaps": "inline",
+  "plugins": [
+    "jsx-control-statements",
+    "root-import"
+  ],
+}
+
