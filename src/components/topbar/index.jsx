@@ -8,7 +8,6 @@ import MenuIcon from 'material-ui-icons/ArrowBack';
 import { If } from 'babel-plugin-jsx-control-statements';
 import { withIndexStyle } from './styles';
 
-
 const Topbar = ({ classes, title, back }) => (
   <div className={classes.root}>
     <AppBar position="static" color="default">
