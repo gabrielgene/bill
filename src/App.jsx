@@ -14,9 +14,7 @@ const App = () => (
       <Table name="Mesa 1" status="CLOSED" />
       <Table name="Mesa 2" status="OPEN" />
       <Table name="Mesa 3" status="WAITING" />
-      <If condition={false}>
-        <Table name="Mesa 4" status="CALLING" />
-      </If>
+      <Table name="Mesa 4" status="CALLING" />
     </p>
   </div>
 );
