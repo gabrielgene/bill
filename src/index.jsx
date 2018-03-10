@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import registerServiceWorker from './registerServiceWorker';
 
 import WalterHome from './pages/waiter/home';
 import AllOrders from './pages/waiter/all-orders';
 import Notifications from './pages/waiter/notifications';
+import './index.css';
 
 const App = () => (
   <Router>

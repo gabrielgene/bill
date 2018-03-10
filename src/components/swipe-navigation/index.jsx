@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import TableList from '../table-list';
+import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { virtualize } from 'react-swipeable-views-utils';
 import Button from 'material-ui/Button';
+import TableList from '../table-list';
 import { withIndexStyle } from './styles';
 
 const VirtualizedSwipeableViews = virtualize(SwipeableViews);
@@ -19,19 +19,19 @@ const SwipeNavigation = ({ classes }) => (
       <div className={classes.filter}>
         <Button className={classes.button} size="small" variant="raised" color="primary">
           ALL
-      </Button>
+        </Button>
         <Button className={classes.button} size="small" variant="raised" color="primary">
           CALLING
-      </Button>
+        </Button>
         <Button className={classes.button} size="small" variant="raised" color="primary">
           WAITING
-      </Button>
+        </Button>
         <Button className={classes.button} size="small" variant="raised" color="primary">
           OPEN
-      </Button>
+        </Button>
         <Button className={classes.button} size="small" variant="raised" color="primary">
           CLOSED
-      </Button>
+        </Button>
       </div>
     </div>
     <VirtualizedSwipeableViews
