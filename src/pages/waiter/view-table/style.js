@@ -10,10 +10,12 @@ export const withIndexStyle = withStyles(theme => ({
     position: 'absolute',
     bottom: theme.spacing.unit * 2,
     right: theme.spacing.unit * 2,
-    backgroundColor: red[400],
+    backgroundColor: red[A400],
   },
-  transitionDuration: {
-    enter: theme.transitions.duration.enteringScreen,
-    exit: theme.transitions.duration.leavingScreen,
+  tabTypography: {
+    padding: theme.spacing.unit * 3,
+  },
+  fabZoom: {
+    transitionDelay: theme.transitions.duration.leavingScreen
   },
 }));

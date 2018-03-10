@@ -1,5 +1,6 @@
 import React from 'react';
 import { compose, withStateHandlers } from 'recompose';
+
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
@@ -7,16 +8,11 @@ import { Link } from 'react-router-dom';
 import Zoom from 'material-ui/transitions/Zoom';
 import Button from 'material-ui/Button';
 import Icon from 'material-ui/Icon';
+
 import TopBar from '~/src/components/topbar';
 
 import { withIndexStyle } from './style';
 
-
-const TabContainer = ({ children }) => (
-  <Typography component="div" style={{ padding: 8 * 3 }}>
-    {children}
-  </Typography>
-);
 
 const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
   // so far the buttons are really similar but I think that can/will change
@@ -48,18 +44,23 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
           </Tabs>
         </AppBar>
         <If condition={currentTab === 0}>
-          <TabContainer>Pagamentos</TabContainer>
+          <Typography component="div" className={classes.tabTypography}>
+            Pagamentos
+          </Typography>
         </If>
         <If condition={currentTab === 1}>
-          <TabContainer>Pedidos</TabContainer>
+          <Typography component="div" className={classes.tabTypography}>
+            Pedidos
+          </Typography>
         </If>
         <For each="fab" of={fabs} index="idx">
           <Zoom
-            key={fab.color}
+            key={idx}
             in={currentTab === idx}
-            style={{
-              transitionDelay: currentTab === idx ? classes.transitionDuration.exit : 0,
-            }}
+            className={currentTab === idx ? classes.fabZoom : 0}
+            // style={{
+            //   transitionDelay: currentTab === idx ? classes.transitionDuration.exit : 0,
+            // }}
             unmountOnExit
           >
             <Button
@@ -68,9 +69,7 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
               variant="fab"
               className={classes.fab}
             >
-              <Icon>
-                add
-              </Icon>
+              <Icon> add </Icon>
             </Button>
           </Zoom>
         </For>
@@ -83,8 +82,8 @@ export default compose(
   withStateHandlers(
     { currentTab: 0 },
     {
-      handleTabChange: () => (e, value)  => ({
-        currentTab: value,
+      handleTabChange: () => (_, currentTab)  => ({
+        currentTab,
       }),
     }
   ),
