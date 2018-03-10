@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import WalterHome from './pages/waiter/home';
 import AllOrders from './pages/waiter/all-orders';
+import ViewTable from './pages/waiter/view-table';
 import Notifications from './pages/waiter/notifications';
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
       <Route exact path="/" component={WalterHome} />
       <Route path="/todos-pedidos" component={AllOrders} />
       <Route path="/notificacoes" component={Notifications} />
+      <Route path="/adicionar-pedido/:table_name" component={ViewTable} />
     </div>
   </Router>
 )
