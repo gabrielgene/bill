@@ -18,19 +18,15 @@ import { withIndexStyle } from './style';
 const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
   // so far the buttons are really similar but I think that can/will change
   const fabs = [
-    {
-      link: `/link/para/menu`,
-    },
-    {
-      link: 'link/para/pagamentos',
-    },
+    { link: `/link/para/menu` },
+    { link: 'link/para/pagamentos' },
   ];
 
   return (
     <div>
       <TopBar title={match.params.tableName} />
       <div className={classes.root}>
-        <AppBar position="static" color="default" >
+        <AppBar position="static" color="default">
           <Tabs
             value={currentTab}
             onChange={handleTabChange}
@@ -64,7 +60,7 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
               to={fab.link}
               variant="fab"
             >
-              <Icon> add </Icon>
+              <Icon>add</Icon>
             </Button>
           </Zoom>
         </For>
