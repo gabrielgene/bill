@@ -33,18 +33,11 @@ module.exports = {
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
-  entry: {
-    index: [
-      require.resolve('./polyfills'),
-      require.resolve('react-dev-utils/webpackHotDevClient'),
-      paths.appIndexJs,
-    ],
-    waiter: [
-      require.resolve('./polyfills'),
-      require.resolve('react-dev-utils/webpackHotDevClient'),
-      paths.appWaiterJs,
-    ],
-  },
+  entry: [
+    require.resolve('./polyfills'),
+    require.resolve('react-dev-utils/webpackHotDevClient'),
+    paths.appIndexJs,
+  ],
   output: {
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
@@ -213,14 +206,7 @@ module.exports = {
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      chunks: ['index'],
       template: paths.appHtml,
-    }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      chunks: ['waiter'],
-      template: paths.appHtml,
-      filename: 'waiter.html',
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
