@@ -1,6 +1,6 @@
 import { withStyles } from 'material-ui';
 
-export const withIndexClasses = withStyles(theme => ({
+export const withIndexClasses = withStyles(({
   root: {
     width: '100%',
     position: 'fixed',
