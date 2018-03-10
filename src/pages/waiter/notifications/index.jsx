@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import SwipeNavigation from '../../../components/swipe-navigation';
 import TopBar from '../../../components/topbar';
 import BottomBar from '../../../components/bottom-bar';
 
 
-class Home extends Component {
+class Notifications extends Component {
 
   render() {
     return (
       <div>
-        <TopBar title="Mesas" />
-        <SwipeNavigation />
+        <TopBar title="Notificações" />
+        <h1>Todas as notificações aqui</h1>
         <BottomBar />
       </div>
     )
   }
 }
 
-export default Home;
+export default Notifications;
