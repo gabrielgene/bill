@@ -13,7 +13,6 @@ export const withIndexStyle = withStyles(theme => ({
     backgroundColor: red[400],
   },
   transitionDuration: {
-    enter: theme.transitions.duration.enteringScreen,
     exit: theme.transitions.duration.leavingScreen,
   },
 }));
