@@ -16,6 +16,6 @@ export const withIndexStyle = withStyles(theme => ({
     padding: theme.spacing.unit * 3,
   },
   fabActive: {
-    transitionDelay: theme.transitions.duration.leavingScreen
+    transitionDelay: theme.transitions.duration.leavingScreen,
   },
 }));
