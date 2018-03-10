@@ -1,5 +1,6 @@
 import React from 'react';
 import { compose, withStateHandlers } from 'recompose';
+import classNames from 'classnames';
 
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
@@ -19,11 +20,9 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
   const fabs = [
     {
       link: `/link/para/menu`,
-      className: classes.fab,
     },
     {
       link: 'link/para/pagamentos',
-      className: classes.fab,
     },
   ];
 
@@ -57,17 +56,13 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
           <Zoom
             key={idx}
             in={currentTab === idx}
-            className={currentTab === idx ? classes.fabZoom : 0}
-            // style={{
-            //   transitionDelay: currentTab === idx ? classes.transitionDuration.exit : 0,
-            // }}
+            className={classNames(currentTab === idx && classes.fabActive, classes.fab)}
             unmountOnExit
           >
             <Button
               component={Link}
               to={fab.link}
               variant="fab"
-              className={classes.fab}
             >
               <Icon> add </Icon>
             </Button>
