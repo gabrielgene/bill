@@ -1,99 +1,86 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { compose, withStateHandlers } from 'recompose';
+import classNames from 'classnames';
+
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
 import { Link } from 'react-router-dom';
-
-import { withIndexStyle } from './style';
 import Zoom from 'material-ui/transitions/Zoom';
 import Button from 'material-ui/Button';
-import AddIcon from 'material-ui-icons/Add';
-import EditIcon from 'material-ui-icons/ModeEdit';
+import Icon from 'material-ui/Icon';
 
-import TopBar from '../../../components/topbar';
-import BottomBar from '../../../components/bottom-bar';
+import TopBar from '~/src/components/topbar';
+
+import { withIndexStyle } from './style';
 
 
-function TabContainer(props) {
+const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
+  // so far the buttons are really similar but I think that can/will change
+  const fabs = [
+    {
+      link: `/link/para/menu`,
+    },
+    {
+      link: 'link/para/pagamentos',
+    },
+  ];
+
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
-}
-
-
-{/* TODO: refactor, this is way to link the components just so development is clearer */}
-class ViewTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0,
-    };
-  }
-
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
-
-  render() {
-    const { classes, match } = this.props;
-    const tableName = match.params.table_name;
-    const { value } = this.state;
-
-    const fabs = [
-      {
-        color: 'primary',
-        className: classes.fab,
-        icon: <AddIcon />,
-      },
-      {
-        color: 'secondary',
-        className: classes.fab,
-        icon: <EditIcon />,
-      },
-    ];
-
-    return (
-      <div>
-        <TopBar title={tableName} />
-        <div className={classes.root}>
-          <AppBar position="static" color="default" >
-            <Tabs
-              value={value}
-              onChange={this.handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              fullWidth
-            >
-              <Tab label="Pagamentos" />
-              <Tab label="Pedidos" />
-            </Tabs>
-          </AppBar>
-          {value === 0 && <TabContainer>Pagamentos</TabContainer>}
-          {value === 1 &&
-            <TabContainer>
-              Pedidos
-            </TabContainer>
-          }
-          {fabs.map((fab, index) => (
+    <div>
+      <TopBar title={match.params.tableName} />
+      <div className={classes.root}>
+        <AppBar position="static" color="default" >
+          <Tabs
+            value={currentTab}
+            onChange={handleTabChange}
+            indicatorColor="primary"
+            textColor="primary"
+            fullWidth
+          >
+            <Tab label="Pagamentos" />
+            <Tab label="Pedidos" />
+          </Tabs>
+        </AppBar>
+        <If condition={currentTab === 0}>
+          <Typography component="div" className={classes.tabTypography}>
+            Pagamentos
+          </Typography>
+        </If>
+        <If condition={currentTab === 1}>
+          <Typography component="div" className={classes.tabTypography}>
+            Pedidos
+          </Typography>
+        </If>
+        <For each="fab" of={fabs} index="idx">
           <Zoom
-            key={fab.color}
-            in={this.state.value === index}
-            style={{
-              transitionDelay: this.state.value === index ? classes.transitionDuration.exit : 0,
-            }}
+            key={idx}
+            in={currentTab === idx}
+            className={classNames(currentTab === idx && classes.fabActive, classes.fab)}
             unmountOnExit
           >
-            <Button component={Link} to={`/visualizar/${tableName}/menu`} variant="fab" className={fab.className} color={fab.color}>
-              {fab.icon}
+            <Button
+              component={Link}
+              to={fab.link}
+              variant="fab"
+            >
+              <Icon> add </Icon>
             </Button>
           </Zoom>
-        ))}
-        </div>
+        </For>
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
 
-export default withIndexStyle(ViewTable);
+export default compose(
+  withStateHandlers(
+    { currentTab: 0 },
+    {
+      handleTabChange: () => (_, currentTab)  => ({
+        currentTab,
+      }),
+    }
+  ),
+  withIndexStyle,
+)(ViewTable);

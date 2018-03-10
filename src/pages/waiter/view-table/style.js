@@ -1,5 +1,5 @@
 import { withStyles } from 'material-ui';
-import { green, yellow, red } from 'material-ui/colors';
+import { red } from 'material-ui/colors';
 
 export const withIndexStyle = withStyles(theme => ({
   root: {
@@ -10,13 +10,12 @@ export const withIndexStyle = withStyles(theme => ({
     position: 'absolute',
     bottom: theme.spacing.unit * 2,
     right: theme.spacing.unit * 2,
+    backgroundColor: red.A400,
   },
-  fabGreen: {
-    color: theme.palette.common.white,
-    backgroundColor: green[500],
+  tabTypography: {
+    padding: theme.spacing.unit * 3,
   },
-  transitionDuration: {
-    enter: theme.transitions.duration.enteringScreen,
-    exit: theme.transitions.duration.leavingScreen,
+  fabActive: {
+    transitionDelay: theme.transitions.duration.leavingScreen
   },
 }));
