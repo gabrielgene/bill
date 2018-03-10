@@ -5,8 +5,4 @@ export const withIndexStyle = withStyles(theme => ({
     flexGrow: 1,
     marginBottom: theme.spacing.unit,
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
 }));
