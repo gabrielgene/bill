@@ -328,6 +328,10 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
+auto-bind@1.2.0:
+  version "1.2.0"
+  resolved "http://nexus.apps.jusbr.com/repository/npm-all/auto-bind/-/auto-bind-1.2.0.tgz#8b7e318aad53d43ba8a8ecaf0066d85d5f798cd6"
+
 autoprefixer@7.1.6:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.1.6.tgz#fb933039f74af74a83e71225ce78d9fd58ba84d7"
@@ -972,7 +976,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-root-import@^4.1.8:
+babel-root-import@4.1.8:
   version "4.1.8"
   resolved "http://nexus.apps.jusbr.com/repository/npm-all/babel-root-import/-/babel-root-import-4.1.8.tgz#135bb83986d57d6f75ba9b7772b31633e22fbdac"
   dependencies:
@@ -5986,7 +5990,7 @@ react-scrollbar-size@^2.0.2:
     react-event-listener "^0.5.1"
     stifle "^1.0.2"
 
-react-swipeable-views-core@^0.12.11:
+react-swipeable-views-core@0.12.11, react-swipeable-views-core@^0.12.11:
   version "0.12.11"
   resolved "http://nexus.apps.jusbr.com/repository/npm-all/react-swipeable-views-core/-/react-swipeable-views-core-0.12.11.tgz#3cf2b4daffbb36f9d69bd19bf5b2d5370b6b2c1b"
   dependencies:
