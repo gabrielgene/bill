@@ -17,7 +17,7 @@ const App = () => (
       <Route path="/notificacoes" component={Notifications} />
     </div>
   </Router>
-)
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

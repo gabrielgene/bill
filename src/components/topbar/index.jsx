@@ -24,7 +24,7 @@ const Topbar = ({ classes, title, back }) => (
       </Toolbar>
     </AppBar>
   </div>
-)
+);
 
 Topbar.propTypes = {
   classes: PropTypes.object.isRequired,
