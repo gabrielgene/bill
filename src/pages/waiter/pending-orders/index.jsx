@@ -2,12 +2,12 @@ import React from 'react';
 import TopBar from '../../../components/topbar';
 import BottomBar from '../../../components/bottom-bar';
 
-const Notifications = () => (
+const PendingOrders = () => (
   <div>
-    <TopBar title="Notificações" />
-    <h1>Todas as notificações aqui</h1>
+    <TopBar title="Pedidos Pendentes" />
+    <h1>Todos os pedidos pendentes aqui</h1>
     <BottomBar />
   </div>
 );
 
-export default Notifications;
+export default PendingOrders;

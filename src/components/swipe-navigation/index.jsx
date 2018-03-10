@@ -1,72 +1,48 @@
-import React, { Component } from 'react';
-import TableList from '../table-list';
+import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { virtualize } from 'react-swipeable-views-utils';
-import { mod } from 'react-swipeable-views-core';
+import Button from 'material-ui/Button';
+import TableList from '../table-list';
+import { withIndexStyle } from './styles';
 
+const VirtualizedSwipeableViews = virtualize(SwipeableViews);
 
-const VirtualizeSwipeableViews = virtualize(SwipeableViews);
+const tableFilters = {
+  0: 'ALL',
+  1: 'CALLING',
+  2: 'WAITING',
+};
 
-function slideRenderer(params) {
-  const { index, key } = params;
-
-  switch (mod(index, 3)) {
-    case 0:
-      return (
+const SwipeNavigation = ({ classes }) => (
+  <div>
+    <div className={classes.filterWrapper}>
+      <div className={classes.filter}>
+        <Button className={classes.button} size="small" variant="raised" color="primary">
+          ALL
+        </Button>
+        <Button className={classes.button} size="small" variant="raised" color="primary">
+          CALLING
+        </Button>
+        <Button className={classes.button} size="small" variant="raised" color="primary">
+          WAITING
+        </Button>
+        <Button className={classes.button} size="small" variant="raised" color="primary">
+          OPEN
+        </Button>
+        <Button className={classes.button} size="small" variant="raised" color="primary">
+          CLOSED
+        </Button>
+      </div>
+    </div>
+    <VirtualizedSwipeableViews
+      slideRenderer={({ index, key }) => (
         <div key={key}>
-          <TableList />
+          <TableList filteredBy={tableFilters[index]} />
         </div>
-      );
+      )}
+    />
 
-    case 1:
-      return (
-        <div key={key}>
-          <TableList filteredBy="CALLING" />
-        </div>
-      );
+  </div>
+);
 
-    case 2:
-      return (
-        <div key={key}>
-          <TableList filteredBy="WAITING" />
-        </div>
-      );
-
-    default:
-      return null;
-  }
-}
-
-
-class SwipeNavigation extends Component {
-
-  render() {
-    return (
-      <SwipeableViews resistance>
-        <div>
-          <TableList />
-        </div>
-        <div>
-          <TableList filteredBy="CALLING" />
-        </div>
-        <div>
-          <TableList filteredBy="WAITING" />
-        </div>
-        <div>
-          <TableList filteredBy="OPEN" />
-        </div>
-        <div>
-          <TableList filteredBy="CLOSED" />
-        </div>
-      </SwipeableViews>
-    )
-  }
-}
-
-function DemoSimple() {
-  return (
-    <VirtualizeSwipeableViews slideRenderer={slideRenderer} />
-  );
-}
-
-export default DemoSimple;
+export default withIndexStyle(SwipeNavigation);

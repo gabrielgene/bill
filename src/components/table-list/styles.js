@@ -1,6 +1,6 @@
 import { withStyles } from 'material-ui';
 
-export const withIndexStyle = withStyles(theme => ({
+export const withIndexStyle = withStyles(({
   root: {
     overflow: 'auto',
     height: '80vh',

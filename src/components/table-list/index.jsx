@@ -26,7 +26,7 @@ const TableList = ({ classes, filteredBy }) => (
   <div className={classes.root}>
     {
       fakeTables.filter(({ status }) =>
-        filteredBy === undefined
+        filteredBy === 'ALL'
           ? true
           : status === filteredBy
       ).map(({ name, status }) => (
