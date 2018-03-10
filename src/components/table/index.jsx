@@ -6,7 +6,7 @@ import { withIndexStyle } from './styles';
 
 const Table = ({ classes, name, status }) => (
   <Paper className={classNames(classes.root, classes[status.toLowerCase()])}>
-    <Typography className={classes.name} variant="display3">{name}</Typography>
+    <Typography className={classes.name} variant="display1">{name}</Typography>
   </Paper>
 );
 
