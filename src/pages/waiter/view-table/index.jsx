@@ -10,7 +10,7 @@ import Zoom from 'material-ui/transitions/Zoom';
 import Button from 'material-ui/Button';
 import Icon from 'material-ui/Icon';
 
-import TopBar from '~/src/components/topbar';
+import DefaultLayout from '~/src/layouts/default';
 
 import { withIndexStyle } from './style';
 
@@ -19,12 +19,11 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
   // so far the buttons are really similar but I think that can/will change
   const fabs = [
     { link: `/link/para/menu` },
-    { link: 'link/para/pagamentos' },
+    { link: `/visualizar/${match.params.table_name}/menu` },
   ];
 
   return (
-    <div>
-      <TopBar title={match.params.tableName} />
+    <DefaultLayout topBarProps={{ title: match.params.table_name }}>
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs
@@ -65,7 +64,7 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
           </Zoom>
         </For>
       </div>
-    </div>
+    </DefaultLayout>
   );
 };
 
