@@ -12,7 +12,7 @@ const ProductCategory = ({ classes, name, icon, color }) => (
     <ListItem
       component={Link}
       to={name}
-      className={classNames(classes.button, classes.subheading)}
+      className={classes.button}
       button
     >
       <Icon> {icon} </Icon>
