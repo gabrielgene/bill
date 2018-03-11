@@ -1,14 +1,10 @@
 import { withStyles } from 'material-ui';
 import { green, yellow, red, blue, orange } from 'material-ui/colors';
 
-export const withIndexStyle = withStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 2,
-  },
+export const withIndexStyle = withStyles(() => ({
   button: {
     height: '20vh',
+    // is there a better way to do this?
   },
   0: {
     backgroundColor: orange.A200,

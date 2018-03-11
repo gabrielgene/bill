@@ -28,6 +28,9 @@ const mockProductCategories = [
 ]
 
 const ProductMenuList = ({ match, classes }) => (
+  // thinking of having a state here that will change on list item
+  // selection and render the different product groups, is that alright to do,
+  // considering the data fetching?
   <List className={classes.padding}>
     <For each="product" of={mockProductCategories} index="idx">
       <ProductCategory match={match} key={idx} index={idx} name={product.name} icon={product.icon} />
