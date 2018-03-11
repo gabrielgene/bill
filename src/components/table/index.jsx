@@ -1,8 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+
 import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
-import classNames from 'classnames';
 import { Icon } from 'material-ui';
 
 import { withIndexStyle } from './styles';
@@ -31,7 +33,7 @@ const Table = ({ classes, status, name }) => {
   const { label, icon } = statusMap[lowerCaseStatus];
 
   return (
-    <ListItem className={classNames(classes.root, classes[lowerCaseStatus])}>
+    <ListItem component={Link} to={`mesas/${name}`} className={classNames(classes.root, classes[lowerCaseStatus])}>
       <ListItemAvatar>
         <Avatar className={classes[`${lowerCaseStatus}Avatar`]}>
           <Icon>{icon}</Icon>
