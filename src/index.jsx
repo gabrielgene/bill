@@ -29,7 +29,7 @@ const App = () => (
         <Route path="/pedidos-pendentes" component={PendingOrders} />
         <Route path="/notificacoes" component={Notifications} />
         <Route path="/mesas/:name" component={TablePage} exact />
-        <Route path="/visualizar/:name/menu" component={ProductMenu} />
+        <Route path="/mesas/:name/menu" component={ProductMenu} />
       </div>
     </Router>
   </MuiThemeProvider>
