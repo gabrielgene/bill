@@ -2,6 +2,7 @@ import React from 'react';
 import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
+import classNames from 'classnames';
 import { Icon } from 'material-ui';
 
 import { withIndexStyle } from './styles';
@@ -27,10 +28,11 @@ const statusMap = {
 
 const Table = ({ classes, status, name }) => {
   const lowerCaseStatus = status.toLowerCase();
+  const lowerCaseStatusBorder = status.toLowerCase() + 'Border';
   const { label, icon } = statusMap[lowerCaseStatus];
 
   return (
-    <ListItem>
+    <ListItem className={classNames(classes.root, classes[lowerCaseStatusBorder])}>
       <ListItemAvatar>
         <Avatar className={classes[lowerCaseStatus]}>
           <Icon>{icon}</Icon>
