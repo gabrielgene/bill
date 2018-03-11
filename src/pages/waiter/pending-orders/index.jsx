@@ -1,13 +1,10 @@
 import React from 'react';
-import TopBar from '../../../components/topbar';
-import BottomBar from '../../../components/bottom-bar';
+import DefaultLayout from '~/src/layouts/default';
 
 const PendingOrders = () => (
-  <div>
-    <TopBar title="Pedidos Pendentes" />
+  <DefaultLayout topBarProps={{ title: 'Pedidos' }}>
     <h1>Todos os pedidos pendentes aqui</h1>
-    <BottomBar />
-  </div>
+  </DefaultLayout>
 );
 
 export default PendingOrders;

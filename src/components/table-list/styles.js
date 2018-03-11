@@ -1,10 +1,8 @@
 import { withStyles } from 'material-ui';
 
-export const withIndexStyle = withStyles(({
+export const withIndexStyle = withStyles(theme => ({
   root: {
-    overflow: 'auto',
-    height: '80vh',
-    display: 'flex',
-    flexWrap: 'wrap',
+    padding: 0,
+    backgroundColor: theme.palette.common.white,
   },
 }));

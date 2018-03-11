@@ -1,19 +1,14 @@
 import { withStyles } from 'material-ui';
-import { green, yellow, red } from 'material-ui/colors';
+import { lightGreen, amber, deepOrange, blueGrey } from 'material-ui/colors';
 
-export const withIndexStyle = withStyles(theme => ({
-  root: {
-    display: 'flex',
-    alignItems: 'center',
-    width: `calc(50% - ${theme.spacing.unit * 6}px)`,
-    maxWidth: theme.spacing.unit * 25,
-    height: theme.spacing.unit * 25,
-    padding: theme.spacing.unit * 2,
-    marginLeft: theme.spacing.unit,
-    marginBottom: theme.spacing.unit,
-  },
-  closed: { backgroundColor: theme.palette.grey[100] },
-  open: { backgroundColor: green[500] },
-  waiting: { backgroundColor: yellow[500] },
-  calling: { backgroundColor: red[500] },
-}));
+export const withIndexStyle = withStyles({
+  root: { borderLeft: '3px solid' },
+  idle: { color: blueGrey[500] },
+  free: { color: lightGreen[500] },
+  waiting: { color: amber[500] },
+  calling: { color: deepOrange[500] },
+  idleAvatar: { backgroundColor: blueGrey[500] },
+  freeAvatar: { backgroundColor: lightGreen[500] },
+  waitingAvatar: { backgroundColor: amber[500] },
+  callingAvatar: { backgroundColor: deepOrange[500] },
+});

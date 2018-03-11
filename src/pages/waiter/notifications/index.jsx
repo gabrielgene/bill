@@ -1,13 +1,11 @@
+
 import React from 'react';
-import TopBar from '../../../components/topbar';
-import BottomBar from '../../../components/bottom-bar';
+import DefaultLayout from '~/src/layouts/default';
 
 const Notifications = () => (
-  <div>
-    <TopBar title="Notificações" />
+  <DefaultLayout topBarProps={{ title: 'Notificações' }}>
     <h1>Todas as notificações aqui</h1>
-    <BottomBar />
-  </div>
+  </DefaultLayout>
 );
 
 export default Notifications;
