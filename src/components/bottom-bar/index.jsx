@@ -17,7 +17,6 @@ const routes = {
   pendingOrders: '/pedidos-pendentes',
 };
 
-const { home, notification, pendingOrders } = routes;
 
 const SimpleBottomNavigation = ({ history, classes }) => (
   <BottomNavigation
@@ -27,24 +26,24 @@ const SimpleBottomNavigation = ({ history, classes }) => (
   >
     <BottomNavigationAction
       label="Mesas"
-      value={home}
+      value={routes.home}
       component={Link}
-      to={home}
+      to={routes.home}
       icon={<HomeIcon />}
     />
     <BottomNavigationAction
       label="Pedidos"
-      value={pendingOrders}
+      value={routes.pendingOrders}
       component={Link}
       icon={<ViewListIcon />}
-      to={pendingOrders}
+      to={routes.pendingOrders}
     />
     <BottomNavigationAction
       label="Notificações"
-      value={notification}
+      value={routes.notification}
       component={Link}
       icon={<Badge color="secondary" badgeContent={7}><PriorityHighIcon /></Badge>}
-      to={notification}
+      to={routes.notification}
     />
   </BottomNavigation>
 );
