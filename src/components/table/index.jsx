@@ -30,6 +30,7 @@ const statusMap = {
 
 const Table = ({ classes, status, name }) => {
   const lowerCaseStatus = status.toLowerCase();
+  const tableName = `Mesa ${name.toLowerCase()}`;
   const { label, icon } = statusMap[lowerCaseStatus];
 
   return (
@@ -41,7 +42,7 @@ const Table = ({ classes, status, name }) => {
       </ListItemAvatar>
 
       <ListItemText
-        primary={name}
+        primary={tableName}
         secondary={label}
       />
 
