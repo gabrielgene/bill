@@ -5,9 +5,9 @@ import BottomBar from '~/src/components/bottom-bar';
 
 import { withIndexStyle } from './styles';
 
-const DefaultLayout = ({ classes, topbarProps, children }) => (
+const DefaultLayout = ({ classes, topBarProps, children }) => (
   <div className={classes.root}>
-    <TopBar {...topbarProps} />
+    <TopBar {...topBarProps} />
     <main className={classes.main}>{children}</main>
     <BottomBar />
   </div>

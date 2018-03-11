@@ -1,69 +1,53 @@
 import React from 'react';
-import classNames from 'classnames';
-import List, { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
+import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
-import LockOpenIcon from 'material-ui-icons/LockOpen';
-import LockOutlineIcon from 'material-ui-icons/LockOutline';
-import WarningIcon from 'material-ui-icons/Warning';
-import AutorenewIcon from 'material-ui-icons/Autorenew';
-import ArrowRightIcon from 'material-ui-icons/KeyboardArrowRight';
 import IconButton from 'material-ui/IconButton';
+import { Icon } from 'material-ui';
 
 import { withIndexStyle } from './styles';
 
-const statusText = {
-  open: {
-    text: 'Aberta',
-    icon: <LockOpenIcon />,
+const statusMap = {
+  free: {
+    label: 'Livre',
+    icon: 'lock_open',
   },
-  closed: {
-    text: 'Fechada',
-    icon: <LockOutlineIcon />,
+  idle: {
+    label: 'Ocupada',
+    icon: 'lock',
   },
   waiting: {
-    text: 'Aguardando',
-    icon: <AutorenewIcon />,
+    label: 'Aguardando pedidos',
+    icon: 'autorenew',
   },
   calling: {
-    text: 'Chamando',
-    icon: <WarningIcon />,
+    label: 'Solicitando atenção',
+    icon: 'warning',
   },
 };
 
 const Table = ({ classes, status, name }) => {
-  const statusBorderClass = status.toLowerCase();
-  const statusColorClass = statusBorderClass + 'Color';
+  const lowerCaseStatus = status.toLowerCase();
+  const { label, icon } = statusMap[lowerCaseStatus];
+
   return (
-    <div className={classNames(classes.root, classes[statusBorderClass])}>
-      <List dense={false} >
-        <ListItem >
-          <ListItemAvatar>
-            <Avatar>
-              {statusText[statusBorderClass].icon}
-            </Avatar>
-          </ListItemAvatar>
+    <ListItem>
+      <ListItemAvatar>
+        <Avatar className={classes[lowerCaseStatus]}>
+          <Icon>{icon}</Icon>
+        </Avatar>
+      </ListItemAvatar>
 
-          <ListItemText
-            primary={name}
-            secondary={statusText[statusBorderClass].text}
-            classes={{ secondary: classes[statusColorClass] }}
-          />
+      <ListItemText
+        primary={name}
+        secondary={label}
+      />
 
-          <ListItemSecondaryAction>
-            <IconButton aria-label="Delete">
-              <ArrowRightIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-
-          <ListItemSecondaryAction>
-            <IconButton aria-label="Delete">
-              <ArrowRightIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-
-        </ListItem>
-      </List>
-    </div>
+      <ListItemSecondaryAction>
+        <IconButton aria-label="Delete">
+          <Icon>arrow_right</Icon>
+        </IconButton>
+      </ListItemSecondaryAction>
+    </ListItem>
   );
 };
 

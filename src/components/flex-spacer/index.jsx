@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FlexSpacer = () => (
-  <div style={{ display: 'flex' }} />
+  <div style={{ flex: 1 }} />
 );
 
 export default FlexSpacer;

@@ -1,8 +1,8 @@
 import React from 'react';
-import SwipeableViews from 'react-swipeable-views';
-import { virtualize } from 'react-swipeable-views-utils';
-import Button from 'material-ui/Button';
-import { compose, withState } from 'recompose';
+import { compose, withStateHandlers } from 'recompose';
+import IconButton from 'material-ui/IconButton';
+import Menu, { MenuItem } from 'material-ui/Menu';
+import { Icon } from 'material-ui';
 
 import DefaultLayout from '~/src/layouts/default';
 import TableList from '~/src/components/table-list';
@@ -16,43 +16,54 @@ const filters = [
   { status: 'WAITING', label: 'Aguardando pedido' },
 ];
 
-const Tables = ({ classes }) => {
+const Tables = ({
+  selectedFilter, filterAnchor,
+  setFilter, setFilterAnchor, unsetFilterAnchor,
+}) => {
   declare var filter;
 
-  const topbarAction = (
+  const topBarAction = (
     <div>
       <IconButton
         aria-owns={filterAnchor && 'menu-appbar'}
-        onClick={e => setFilterAnchor(e.target)}
+        onClick={setFilterAnchor}
         aria-haspopup="true"
         color="inherit"
       >
-        <FilterListIcon />
+        <Icon>filter_list_icon</Icon>
       </IconButton>
       <Menu
         id="menu-appbar"
         anchorEl={filterAnchor}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        onClose={() => setFilterAnchor(null)}
-        open={open}
+        onClose={unsetFilterAnchor}
+        open={!!filterAnchor}
       >
         <For each="filter" of={filters}>
-          <MenuItem onClick={() => setFilter(filter.status)}>{filter.label}</MenuItem>
+          <MenuItem onClick={() => setFilter(filter.status)}>
+            {filter.label}
+          </MenuItem>
         </For>
       </Menu>
     </div>
   );
 
   return (
-    <DefaultLayout topbarProps={{ title: 'Mesas', action: topbarAction }}>
-      <TableList filteredBy={filter} />
+    <DefaultLayout topBarProps={{ title: 'Mesas', action: topBarAction }}>
+      <TableList filteredBy={selectedFilter} />
     </DefaultLayout>
   );
 };
 
 export default compose(
   withIndexStyle,
-  withState('filterAnchor', 'setFilterAnchor', null),
-  withState('filter', 'setFilter', null),
+  withStateHandlers(
+    { selectedFilter: null, filterAnchor: null },
+    {
+      setFilterAnchor: () => e => ({ filterAnchor: e.target }),
+      unsetFilterAnchor: () => () => ({ filterAnchor: null }),
+      setFilter: () => selectedFilter => ({ selectedFilter, filterAnchor: null }),
+    },
+  ),
 )(Tables);
