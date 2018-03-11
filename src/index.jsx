@@ -7,7 +7,7 @@ import green from 'material-ui/colors/green';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import WaiterHome from './pages/waiter/tables';
+import WaiterHome from './pages/waiter/waiter-home';
 import PendingOrders from './pages/waiter/pending-orders';
 import Notifications from './pages/waiter/notifications';
 import './index.css';
