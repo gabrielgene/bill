@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { withRouter, Link } from 'react-router-dom';
+import Badge from 'material-ui/Badge';
 
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
 import HomeIcon from 'material-ui-icons/Home';
@@ -42,7 +43,7 @@ const SimpleBottomNavigation = ({ history, classes }) => (
       label="Notificações"
       value={notification}
       component={Link}
-      icon={<PriorityHighIcon />}
+      icon={<Badge color="secondary" badgeContent={7}><PriorityHighIcon /></Badge>}
       to={notification}
     />
   </BottomNavigation>
