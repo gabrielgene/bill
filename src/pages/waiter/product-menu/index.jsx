@@ -27,8 +27,8 @@ const mockProductCategories = [
   },
 ]
 
-const ProductMenuList = ({ match }) => (
-  <List>
+const ProductMenuList = ({ match, classes }) => (
+  <List className={classes.padding}>
     <For each="product" of={mockProductCategories} index="idx">
       <ProductCategory match={match} key={idx} index={idx} name={product.name} icon={product.icon} />
     </For>
