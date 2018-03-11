@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Tables from './pages/waiter/tables';
 import PendingOrders from './pages/waiter/pending-orders';
 import Notifications from './pages/waiter/notifications';
-import TablePage from './pages/waiter/view-table';
+import TablePage from './pages/waiter/table';
 import './index.css';
 
 const theme = createMuiTheme({
