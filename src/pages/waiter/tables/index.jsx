@@ -42,7 +42,7 @@ const Tables = ({
         open={!!filterAnchor}
       >
         <For each="filter" of={filters}>
-          <MenuItem key={filter.label} onClick={() => setFilter(filter.status)}>
+          <MenuItem key={filter.label} onClick={setFilter} data-value={filter.status}>
             {filter.label}
           </MenuItem>
         </For>
@@ -64,7 +64,7 @@ export default compose(
     {
       setFilterAnchor: () => e => ({ filterAnchor: e.target }),
       unsetFilterAnchor: () => () => ({ filterAnchor: null }),
-      setFilter: () => selectedFilter => ({ selectedFilter, filterAnchor: null }),
+      setFilter: () => e => ({ selectedFilter: e.target.dataset.value, filterAnchor: null }),
     },
   ),
 )(Tables);
