@@ -15,11 +15,11 @@ import DefaultLayout from '~/src/layouts/default';
 import { withIndexStyle } from './style';
 
 
-const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
+const TablePage = ({ currentTab, handleTabChange, classes, match }) => {
   // so far the buttons are really similar but I think that can/will change
   const fabs = [
     { link: `/link/para/menu` },
-    { link: `/visualizar/${match.params.table_name}/menu` },
+    { link: `/mesas/${match.params.table_name}/menu` },
   ];
 
   return (
@@ -78,4 +78,4 @@ export default compose(
     }
   ),
   withIndexStyle,
-)(ViewTable);
+)(TablePage);
