@@ -33,6 +33,6 @@ const ProductMenuList = ({ match }) => (
       <ProductCategory match={match} key={idx} index={idx} name={product.name} icon={product.icon} />
     </For>
   </List>
-)
+);
 
 export default withIndexStyle(ProductMenuList);

@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import React from 'react';
+import { ListItem, ListItemText } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Icon from 'material-ui/Icon';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
-import FreeBreakfastIcon from 'material-ui-icons/FreeBreakfast';
-import { withIndexStyle } from './styles'
+import { withIndexStyle } from './styles';
 
-const ProductCategory = ({ classes, name, icon }) => (
-  <div className={classes.root}>
-    <ListItem button>
-      <Icon>
-        {icon}
-      </Icon>
+const ProductCategory = ({ classes, name, icon, index }) => (
+  <div className={classNames(classes.root, classes[index])}>
+    <ListItem
+      component={Link}
+      to={name}
+      className={classNames(classes.button, classes.subheading)}
+      button
+    >
+      <Icon> {icon} </Icon>
       <ListItemText primary={name} />
-      <Icon>
-        keyboard_arrow_right
-      </Icon>
+      <Icon> keyboard_arrow_right </Icon>
     </ListItem>
+    <Divider />
   </div>
-)
+);
 
 export default withIndexStyle(ProductCategory);
