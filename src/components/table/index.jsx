@@ -1,11 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+
 import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import { Icon } from 'material-ui';
-
 
 import { withIndexStyle } from './styles';
 
