@@ -1,19 +1,29 @@
 import { withStyles } from 'material-ui';
-import { green, yellow, red } from 'material-ui/colors';
+import { lightGreen, amber, deepOrange, blueGrey } from 'material-ui/colors';
 
 export const withIndexStyle = withStyles(theme => ({
   root: {
-    display: 'flex',
-    alignItems: 'center',
-    width: `calc(50% - ${theme.spacing.unit * 6}px)`,
-    maxWidth: theme.spacing.unit * 25,
-    height: theme.spacing.unit * 25,
-    padding: theme.spacing.unit * 2,
-    marginLeft: theme.spacing.unit,
-    marginBottom: theme.spacing.unit,
+    width: `calc(100% - 3px)`,
+    backgroundColor: theme.palette.background.paper,
   },
-  closed: { backgroundColor: theme.palette.grey[100] },
-  open: { backgroundColor: green[500] },
-  waiting: { backgroundColor: yellow[500] },
-  calling: { backgroundColor: red[500] },
+  item: {
+    display: 'flex',
+    height: theme.spacing.unit * 10,
+    alignItems: 'center',
+  },
+  status: {
+    width: 3,
+    height: 64,
+  },
+  listItem: {
+    width: '100%',
+  },
+  closed: { borderLeft: `3px solid ${blueGrey[500]}` },
+  open: { borderLeft: `3px solid ${lightGreen[500]}` },
+  waiting: { borderLeft: `3px solid ${amber[500]}` },
+  calling: { borderLeft: `3px solid ${deepOrange[500]}` },
+  closedColor: { color: blueGrey[500] },
+  openColor: { color: lightGreen[500] },
+  waitingColor: { color: amber[500] },
+  callingColor: { color: deepOrange[500] },
 }));
