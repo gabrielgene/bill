@@ -6,7 +6,7 @@ import Typography from 'material-ui/Typography';
 import FlexSpacer from '~/src/components/flex-spacer';
 
 const TopBar = ({ title, action }) => (
-  <AppBar color="default">
+  <AppBar>
     <Toolbar>
       <Typography variant="title" color="inherit">{title}</Typography>
       <FlexSpacer />
