@@ -28,13 +28,12 @@ const statusMap = {
 
 const Table = ({ classes, status, name }) => {
   const lowerCaseStatus = status.toLowerCase();
-  const lowerCaseStatusBorder = status.toLowerCase() + 'Border';
   const { label, icon } = statusMap[lowerCaseStatus];
 
   return (
-    <ListItem className={classNames(classes.root, classes[lowerCaseStatusBorder])}>
+    <ListItem className={classNames(classes.root, classes[lowerCaseStatus])}>
       <ListItemAvatar>
-        <Avatar className={classes[lowerCaseStatus]}>
+        <Avatar className={classes[`${lowerCaseStatus}Avatar`]}>
           <Icon>{icon}</Icon>
         </Avatar>
       </ListItemAvatar>
