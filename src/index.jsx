@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Tables from './pages/waiter/tables';
 import PendingOrders from './pages/waiter/pending-orders';
 import Notifications from './pages/waiter/notifications';
-import ViewTable from './pages/waiter/view-table';
+import TablePage from './pages/waiter/table';
 import ProductMenu from './pages/waiter/product-menu';
 import './index.css';
 
@@ -28,8 +28,8 @@ const App = () => (
         <Route exact path="/" component={Tables} />
         <Route path="/pedidos-pendentes" component={PendingOrders} />
         <Route path="/notificacoes" component={Notifications} />
-        <Route path="/visualizar/:table_name" component={ViewTable} exact />
-        <Route path="/visualizar/:table_name/menu" component={ProductMenu} />
+        <Route path="/mesas/:name" component={TablePage} exact />
+        <Route path="/visualizar/:name/menu" component={ProductMenu} />
       </div>
     </Router>
   </MuiThemeProvider>

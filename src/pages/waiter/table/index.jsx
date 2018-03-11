@@ -15,15 +15,15 @@ import DefaultLayout from '~/src/layouts/default';
 import { withIndexStyle } from './style';
 
 
-const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
+const TablePage = ({ currentTab, handleTabChange, classes, match }) => {
   // so far the buttons are really similar but I think that can/will change
   const fabs = [
     { link: `/link/para/menu` },
-    { link: `/visualizar/${match.params.table_name}/menu` },
+    { link: `/mesas/${match.params.name}/menu` },
   ];
 
   return (
-    <DefaultLayout topBarProps={{ title: match.params.table_name }}>
+    <DefaultLayout topBarProps={{ title: match.params.name }}>
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs
@@ -78,4 +78,4 @@ export default compose(
     }
   ),
   withIndexStyle,
-)(ViewTable);
+)(TablePage);
