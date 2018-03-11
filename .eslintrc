@@ -15,6 +15,7 @@
     "jsx-control-statements"
   ],
   "rules": {
+    "semi": 1,
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "react/jsx-no-undef": [2, { "allowGlobals": true }],
     "import/no-unresolved": [2, { "ignore": ["^[~|.]"] }],
@@ -51,4 +52,3 @@
     "es6": true
   }
 }
-

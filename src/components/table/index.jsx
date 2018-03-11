@@ -1,13 +1,55 @@
 import React from 'react';
+import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
+import IconButton from 'material-ui/IconButton';
 import classNames from 'classnames';
-import { Paper, Typography } from 'material-ui';
+import { Icon } from 'material-ui';
 
 import { withIndexStyle } from './styles';
 
-const Table = ({ classes, name, status }) => (
-  <Paper className={classNames(classes.root, classes[status.toLowerCase()])}>
-    <Typography className={classes.name} variant="display3">{name}</Typography>
-  </Paper>
-);
+const statusMap = {
+  free: {
+    label: 'Livre',
+    icon: 'lock_open',
+  },
+  idle: {
+    label: 'Ocupada',
+    icon: 'lock',
+  },
+  waiting: {
+    label: 'Aguardando pedidos',
+    icon: 'autorenew',
+  },
+  calling: {
+    label: 'Solicitando atenção',
+    icon: 'warning',
+  },
+};
+
+const Table = ({ classes, status, name }) => {
+  const lowerCaseStatus = status.toLowerCase();
+  const { label, icon } = statusMap[lowerCaseStatus];
+
+  return (
+    <ListItem className={classNames(classes.root, classes[lowerCaseStatus])}>
+      <ListItemAvatar>
+        <Avatar className={classes[`${lowerCaseStatus}Avatar`]}>
+          <Icon>{icon}</Icon>
+        </Avatar>
+      </ListItemAvatar>
+
+      <ListItemText
+        primary={name}
+        secondary={label}
+      />
+
+      <ListItemSecondaryAction>
+        <IconButton aria-label="Delete">
+          <Icon>arrow_right</Icon>
+        </IconButton>
+      </ListItemSecondaryAction>
+    </ListItem>
+  );
+};
 
 export default withIndexStyle(Table);
