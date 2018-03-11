@@ -1,7 +1,7 @@
 import { withStyles } from 'material-ui';
 
 export const withIndexStyle = withStyles(() => ({
-  padding: {
+  root: {
     padding: 0,
   },
 }));

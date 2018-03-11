@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 
 import { withIndexStyle } from './styles';
 
-const ProductCategory = ({ classes, name, icon, index }) => (
-  <div className={classNames(classes.root, classes[index])}>
+const ProductCategory = ({ classes, name, icon, color }) => (
+  <div className={classNames(classes.root, classes[color])}>
     <ListItem
       component={Link}
       to={name}

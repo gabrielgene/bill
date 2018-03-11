@@ -1,24 +1,14 @@
 import { withStyles } from 'material-ui';
 import { green, yellow, red, blue, orange } from 'material-ui/colors';
 
-export const withIndexStyle = withStyles(() => ({
+export const withIndexStyle = withStyles((theme) => ({
   button: {
     height: '20vh',
-    // is there a better way to do this?
+    minHeight: theme.spacing.unit * 12,
   },
-  0: {
-    backgroundColor: orange.A200,
-  },
-  1: {
-    backgroundColor: red.A200,
-  },
-  2: {
-    backgroundColor: yellow.A200,
-  },
-  3: {
-    backgroundColor: green.A200,
-  },
-  4: {
-    backgroundColor: blue.A200,
-  },
+  orange: { backgroundColor: orange.A200 },
+  red: { backgroundColor: red.A200 },
+  yellow: { backgroundColor: yellow.A200 },
+  green: { backgroundColor: green.A200 },
+  blue: { backgroundColor: blue.A200 },
 }));
