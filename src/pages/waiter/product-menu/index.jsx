@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
-import TopBar from '../../../components/topbar';
+import React from 'react';
 
 import List from 'material-ui/List';
 import { withIndexStyle } from './styles';
@@ -17,7 +15,7 @@ const mockProductCategories = [
   },
   {
     name: 'Fast Food',
-    icon: 'local pizza',
+    icon: 'local_pizza',
   },
   {
     name: 'Tortas',
@@ -29,9 +27,11 @@ const mockProductCategories = [
   },
 ]
 
-const ProductMenuList = () => (
+const ProductMenuList = ({ match }) => (
   <List>
-    <ProductCategory />
+    <For each="product" of={mockProductCategories} index="idx">
+      <ProductCategory match={match} key={idx} index={idx} name={product.name} icon={product.icon} />
+    </For>
   </List>
 )
 

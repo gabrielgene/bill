@@ -22,13 +22,13 @@ const ViewTable = ({ currentTab, handleTabChange, classes, match }) => {
       link: `/link/para/menu`,
     },
     {
-      link: 'link/para/pagamentos',
+      link: `/visualizar/${match.params.table_name}/menu`,
     },
   ];
 
   return (
     <div>
-      <TopBar title={match.params.tableName} />
+      <TopBar title={match.params.table_name} />
       <div className={classes.root}>
         <AppBar position="static" color="default" >
           <Tabs
