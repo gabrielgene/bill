@@ -1,9 +1,8 @@
 import { withStyles } from 'material-ui';
 
-export const withIndexClasses = withStyles(({
+export const withIndexClasses = withStyles(theme => ({
   root: {
     width: '100%',
-    position: 'fixed',
-    bottom: 0,
+    flex: `0 0 ${theme.spacing.unit * 7}px`,
   },
 }));

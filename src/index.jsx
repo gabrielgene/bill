@@ -7,7 +7,7 @@ import green from 'material-ui/colors/green';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import WalterHome from './pages/waiter/home';
+import WaiterHome from './pages/waiter/tables';
 import PendingOrders from './pages/waiter/pending-orders';
 import Notifications from './pages/waiter/notifications';
 import './index.css';
@@ -23,12 +23,11 @@ const App = () => (
   <MuiThemeProvider theme={theme}>
     <Router>
       <div>
-        <Route exact path="/" component={WalterHome} />
+        <Route exact path="/" component={WaiterHome} />
         <Route path="/pedidos-pendentes" component={PendingOrders} />
         <Route path="/notificacoes" component={Notifications} />
       </div>
     </Router>
-
   </MuiThemeProvider>
 );
 
