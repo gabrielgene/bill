@@ -5,11 +5,13 @@ import BottomBar from '~/src/components/bottom-bar';
 
 import { withIndexStyle } from './styles';
 
-const DefaultLayout = ({ classes, topBarProps, children }) => (
+const DefaultLayout = ({ classes, topBarProps, children, hideBottomBar }) => (
   <div className={classes.root}>
     <TopBar {...topBarProps} />
     <main className={classes.main}>{children}</main>
-    <BottomBar />
+    <If condition={!hideBottomBar}>
+      <BottomBar />
+    </If>
   </div>
 );
 
