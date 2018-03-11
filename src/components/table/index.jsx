@@ -7,7 +7,6 @@ import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import { Icon } from 'material-ui';
 
-
 import { withIndexStyle } from './styles';
 
 const statusMap = {
