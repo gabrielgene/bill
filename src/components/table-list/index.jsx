@@ -59,7 +59,7 @@ const TableList = ({ classes, filteredBy }) => (
           };
 
           return (
-            <Item key={props.name} {...ItemProps} />
+            <Item key={name} {...ItemProps} />
           );
         })
     }
