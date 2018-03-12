@@ -4,21 +4,34 @@ import Avatar from 'material-ui/Avatar';
 import { Icon } from 'material-ui'
 import { Link } from 'react-router-dom';
 
+// const props = {
+//   component: Link,
+//   to: ''
+// };
 
-const Item = ({ target, itemClass, avatarClass, icon, primaryText, secondaryText, secondaryAction }) => (
-  <ListItem component={Link} to={target} className={itemClass}>
+const Item = ({ target, itemClass, avatarClass, icon, primaryText, secondaryText, secondaryAction }) => {
+  const ListItemProps = target && {
+    component: Link,
+    to: target,
+  };
 
-    <Avatar className={avatarClass}>
-      <Icon>{icon}</Icon>
-    </Avatar>
+  return (
+    <ListItem
+      {...ListItemProps}
+      className={itemClass}
+    >
 
-    <ListItemText primary={primaryText} secondary={secondaryText} />
+      <Avatar className={avatarClass}>
+        <Icon>{icon}</Icon>
+      </Avatar>
 
-    <ListItemSecondaryAction>
-      {secondaryAction}
-    </ListItemSecondaryAction>
+      <ListItemText primary={primaryText} secondary={secondaryText} />
 
-  </ListItem>
-);
+      <ListItemSecondaryAction>
+        {secondaryAction}
+      </ListItemSecondaryAction>
 
+    </ListItem >
+  );
+}
 export default Item;
