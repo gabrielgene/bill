@@ -3,15 +3,13 @@ import { ListItem, ListItemText } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Icon from 'material-ui/Icon';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 
 import { withIndexStyle } from './styles';
 
-const ProductCategory = ({ classes, name, icon, color }) => (
+const ProductCategory = ({ classes, name, icon, color, onSelectCategory }) => (
   <div className={classNames(classes.root, classes[color])}>
     <ListItem
-      component={Link}
-      to={name}
+      onClick={onSelectCategory}
       className={classes.button}
       button
     >

@@ -1,4 +1,5 @@
 import React from 'react';
+import autoBind from 'react-autobind';
 
 import List from 'material-ui/List';
 import { withIndexStyle } from './styles';
@@ -32,15 +33,55 @@ const mockProductCategories = [
   },
 ]
 
-const ProductMenuList = ({ classes }) => (
-  // thinking of having a state here that will change on list item
-  // selection and render the different product groups, is that alright to do,
-  // considering the data fetching?
-  <List className={classes.root}>
-    <For each="product" of={mockProductCategories} index="idx">
-      <ProductCategory key={idx} {...product} />
-    </For>
-  </List>
-);
+class ProductMenuList extends React.Component {
+  constructor(props) {
+    super(props);
+    autoBind(this);
+    this.state = {
+      selectedCategory: '',
+    };
+  }
+
+  onSelectCategory(category) {
+    this.setState({
+      selectedCategory: category,
+    });
+  }
+
+  render() {
+    const { selectedCategory } = this.state;
+    return (
+      <Choose>
+        <When condition={selectedCategory === 'Cervejas'}>
+          <h1> Cervejas </h1>
+        </When>
+        <When condition={selectedCategory === 'Drinks'}>
+          <h1> Drinks </h1>
+        </When>
+        <When condition={selectedCategory === 'Fast Food'}>
+          <h1> Fast Food </h1>
+        </When>
+        <When condition={selectedCategory === 'Tortas'}>
+          <h1> Tortas </h1>
+        </When>
+        <When condition={selectedCategory === 'Sobremesas'}>
+          <h1> Sobremesas </h1>
+        </When>
+        <Otherwise>
+          <List className={this.props.classes.root}>
+            <For each="category" of={mockProductCategories} index="idx">
+              <ProductCategory
+                key={idx}
+                onSelectCategory={() => this.onSelectCategory(category.name)}
+                {...category}
+              />
+            </For>
+          </List>
+        </Otherwise>
+      </Choose>
+    );
+  }
+}
+
 
 export default withIndexStyle(ProductMenuList);
