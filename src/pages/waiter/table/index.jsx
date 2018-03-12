@@ -9,6 +9,7 @@ import Button from 'material-ui/Button';
 import Icon from 'material-ui/Icon';
 import autoBind from 'auto-bind';
 import DefaultLayout from '~/src/layouts/default';
+import { getDataByName, fakeTables } from '~/src/fakeData';
 
 import { withIndexStyle } from './style';
 import Orders from './orders';
@@ -34,8 +35,9 @@ class TablePage extends Component {
   render() {
     const { currentTab } = this.state;
     const { classes, match, theme } = this.props;
-
-    const tableName = match.params.name;
+    const tableCode = match.params.name;
+    const tableData = getDataByName(tableCode, fakeTables);
+    const { name } = tableData;
 
     const transitionDuration = {
       enter: theme.transitions.duration.enteringScreen,
@@ -44,7 +46,7 @@ class TablePage extends Component {
 
     const fabs = [
       {
-        link: `/mesas/${tableName}/menu`,
+        link: `/mesas/${tableCode}/menu`,
         className: classes.fab,
         icon: 'add',
         color: 'primary',
@@ -69,13 +71,13 @@ class TablePage extends Component {
     );
 
     return (
-      <DefaultLayout hideBottomBar topBarProps={{ title: tableName, back: true, nav: topBarNav }}>
+      <DefaultLayout hideBottomBar topBarProps={{ title: name, back: true, nav: topBarNav }}>
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={currentTab}
           onChangeIndex={this.handleSwipeChange}
         >
-          <Orders />
+          <Orders orders={tableData.orders} />
           <Typography component="div" dir={theme.direction} className={classes.tabTypography}>
             Pagamentos
           </Typography>
