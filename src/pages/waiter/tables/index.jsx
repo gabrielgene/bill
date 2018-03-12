@@ -51,7 +51,7 @@ const Tables = ({
   );
 
   return (
-    <DefaultLayout bottomBar topBarProps={{ title: 'Mesas', action: topBarAction }}>
+    <DefaultLayout topBarProps={{ title: 'Mesas', action: topBarAction }}>
       <TableList filteredBy={selectedFilter} />
     </DefaultLayout>
   );

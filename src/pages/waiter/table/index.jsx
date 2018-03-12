@@ -69,7 +69,7 @@ class TablePage extends Component {
     );
 
     return (
-      <DefaultLayout topBarProps={{ title: tableName, back: true, nav: topBarNav }}>
+      <DefaultLayout hideBottomBar topBarProps={{ title: tableName, back: true, nav: topBarNav }}>
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={currentTab}

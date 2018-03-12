@@ -7,13 +7,13 @@ import { If } from 'babel-plugin-jsx-control-statements';
 
 import { withIndexStyle } from './styles';
 
-const DefaultLayout = ({ classes, topBarProps, children, bottomBar }) => (
+const DefaultLayout = ({ classes, topBarProps, children, hideBottomBar }) => (
   <div className={classes.root}>
     <TopBar {...topBarProps} />
     <main className={topBarProps.nav ? classNames(classes.main, classes.tab) : classes.main}>
       {children}
     </main>
-    <If condition={bottomBar}>
+    <If condition={!hideBottomBar}>
       <BottomBar />
     </If>
   </div >
