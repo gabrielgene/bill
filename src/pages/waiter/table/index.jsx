@@ -36,7 +36,6 @@ class TablePage extends Component {
     const { classes, match, theme } = this.props;
 
     const tableName = match.params.name;
-    const tableTitleName = `Mesa ${tableName}`;
 
     const transitionDuration = {
       enter: theme.transitions.duration.enteringScreen,
@@ -70,7 +69,7 @@ class TablePage extends Component {
     );
 
     return (
-      <DefaultLayout topBarProps={{ title: tableTitleName, back: true, nav: topBarNav }}>
+      <DefaultLayout topBarProps={{ title: tableName, back: true, nav: topBarNav }}>
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={currentTab}
