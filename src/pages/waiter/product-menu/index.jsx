@@ -30,7 +30,7 @@ const mockProductCategories = [
     icon: 'cake',
     color: 'blue',
   },
-]
+];
 
 const ProductMenuList = ({ classes }) => (
   // thinking of having a state here that will change on list item
