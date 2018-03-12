@@ -30,11 +30,11 @@ const statusMap = {
 
 const Table = ({ classes, status, name }) => {
   const lowerCaseStatus = status.toLowerCase();
-  const tableName = `Mesa ${name.toLowerCase()}`;
+  const tableName = name.toLowerCase();
   const { label, icon } = statusMap[lowerCaseStatus];
 
   return (
-    <ListItem component={Link} to={`mesas/${name}`} className={classNames(classes.root, classes[lowerCaseStatus])}>
+    <ListItem component={Link} to={`mesas/${tableName}`} className={classNames(classes.root, classes[lowerCaseStatus])}>
       <ListItemAvatar>
         <Avatar className={classes[`${lowerCaseStatus}Avatar`]}>
           <Icon>{icon}</Icon>
