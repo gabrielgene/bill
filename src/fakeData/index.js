@@ -1,8 +1,81 @@
-const fakeTables = [
-  { name: 'Mesa 01', status: 'IDLE' },
-  { name: 'Mesa 02', status: 'FREE' },
-  { name: 'Mesa 03', status: 'WAITING' },
-  { name: 'Mesa 04', status: 'CALLING' },
+export const orders = [
+  {
+    id: 1,
+    name: 'Skol Beats',
+    status: 'PENDING',
+    category: 'Cervejas',
+  },
+  {
+    id: 2,
+    name: 'KFC',
+    status: 'DELIVERY',
+    category: 'Fast Food',
+  },
+  {
+    id: 3,
+    name: 'Skol Beats',
+    status: 'PENDING',
+    category: 'Cervejas',
+  },
+  {
+    id: 4,
+    name: 'Torta de Presunto',
+    status: 'PENDING',
+    category: 'Tortas',
+  },
+  {
+    id: 5,
+    name: 'Vodka',
+    status: 'DELIVERY',
+    category: 'Drinks',
+  },
+  {
+    id: 6,
+    name: 'Pizza',
+    status: 'PENDING',
+    category: 'Fast Food',
+  },
+  {
+    id: 7,
+    name: 'Pizza',
+    status: 'PENDING',
+    category: 'Fast Food',
+  },
+  {
+    id: 8,
+    name: 'Bolo de Cenoura',
+    status: 'DELIVERY',
+    category: 'Sobremesas',
+  },
+  {
+    id: 9,
+    name: 'Torta de Presunto',
+    status: 'PENDING',
+    category: 'Tortas',
+  },
+];
+
+export const fakeTables = [
+  {
+    name: 'Mesa 01',
+    status: 'IDLE',
+    orders: [...orders],
+  },
+  {
+    name: 'Mesa 02',
+    status: 'FREE',
+    orders: [],
+  },
+  {
+    name: 'Mesa 03',
+    status: 'WAITING',
+    orders: [...orders],
+  },
+  {
+    name: 'Mesa 04',
+    status: 'CALLING',
+    orders: [...orders],
+  },
   { name: 'Mesa 05', status: 'FREE' },
   { name: 'Mesa 06', status: 'IDLE' },
   { name: 'Mesa 07', status: 'CALLING' },
@@ -16,4 +89,39 @@ const fakeTables = [
   { name: 'Mesa 16', status: 'CALLING' },
 ];
 
-export default fakeTables;
+export const categories = [
+  {
+    name: 'Cervejas',
+    icon: 'free_breakfast',
+    color: 'orange',
+  },
+  {
+    name: 'Drinks',
+    icon: 'local_bar',
+    color: 'red',
+  },
+  {
+    name: 'Fast Food',
+    icon: 'local_pizza',
+    color: 'yellow',
+  },
+  {
+    name: 'Tortas',
+    icon: 'pie_chart',
+    color: 'green',
+  },
+  {
+    name: 'Sobremesas',
+    icon: 'cake',
+    color: 'blue',
+  },
+];
+
+export const getDataByName = (name, data) => {
+  const value = data.find((el) => {
+    if (el.name.toLowerCase() === name.toLowerCase()) {
+      return true;
+    }
+  });
+  return value;
+};
