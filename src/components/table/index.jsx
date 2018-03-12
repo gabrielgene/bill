@@ -46,7 +46,7 @@ const Table = ({ classes, status, name }) => {
       />
 
       <ListItemSecondaryAction>
-        <IconButton aria-label="Delete">
+        <IconButton aria-label="Open">
           <Icon>arrow_right</Icon>
         </IconButton>
       </ListItemSecondaryAction>
