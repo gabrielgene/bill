@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
 import FlexSpacer from '~/src/components/flex-spacer';
 
 const TopBar = ({ title, action, history, back, nav }) => (
-  <AppBar classes={{colorPrimary: 'blue'}}>
+  <AppBar>
     <Toolbar>
       <If condition={back}>
         <IconButton
