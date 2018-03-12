@@ -17,6 +17,10 @@ class Order extends Component {
     };
   }
 
+  componentWillMount() {
+    this.setState({ checked: this.props.status === 'DELIVERY' });
+  }
+
   handleToggle() {
     this.setState({ checked: !this.state.checked });
   }
@@ -25,7 +29,7 @@ class Order extends Component {
     const { classes, name, status, category } = this.props;
     const { checked } = this.state;
 
-    const lowerCaseStatus = status.toLowerCase();
+    const lowerCaseStatus = checked ? 'delivery' : 'pending';
     const categoryData = getDataByName(category, categories);
     return (
       <ListItem key={name} className={classNames(classes.root, classes[lowerCaseStatus])}>
