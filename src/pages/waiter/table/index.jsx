@@ -7,7 +7,7 @@ import SwipeableViews from 'react-swipeable-views';
 import Zoom from 'material-ui/transitions/Zoom';
 import Button from 'material-ui/Button';
 import Icon from 'material-ui/Icon';
-import autoBind from 'auto-bind';
+import autoBind from 'react-autobind';
 import DefaultLayout from '~/src/layouts/default';
 import { getDataByName, fakeTables } from '~/src/fakeData';
 

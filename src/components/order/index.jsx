@@ -4,7 +4,7 @@ import { ListItem, ListItemText, ListItemSecondaryAction } from 'material-ui/Lis
 import Avatar from 'material-ui/Avatar';
 import Checkbox from 'material-ui/Checkbox';
 import { Icon } from 'material-ui';
-import autoBind from 'auto-bind';
+import autoBind from 'react-autobind';
 import { categories, getDataByName } from '~/src/fakeData';
 import { withIndexStyle } from './style';
 
