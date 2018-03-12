@@ -11,6 +11,7 @@ import Tables from './pages/waiter/tables';
 import PendingOrders from './pages/waiter/pending-orders';
 import Notifications from './pages/waiter/notifications';
 import TablePage from './pages/waiter/table';
+import ProductMenu from './pages/waiter/product-menu';
 import './index.css';
 
 const theme = createMuiTheme({
@@ -28,6 +29,7 @@ const App = () => (
         <Route path="/pedidos-pendentes" component={PendingOrders} />
         <Route path="/notificacoes" component={Notifications} />
         <Route path="/mesas/:name" component={TablePage} exact />
+        <Route path="/mesas/:name/menu" component={ProductMenu} />
       </div>
     </Router>
   </MuiThemeProvider>
