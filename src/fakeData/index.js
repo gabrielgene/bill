@@ -93,8 +93,8 @@ export const fakeTables = [
   },
   {
     name: 'Mesa 08',
-    status: 'FREE'
-  orders: [],
+    status: 'FREE',
+    orders: [],
   },
   {
     name: 'Mesa 09',
