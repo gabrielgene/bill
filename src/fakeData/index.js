@@ -8,7 +8,7 @@ export const orders = [
   {
     id: 2,
     name: 'KFC',
-    status: 'DELIVERY',
+    status: 'DELIVERED',
     category: 'Fast Food',
   },
   {
@@ -26,7 +26,7 @@ export const orders = [
   {
     id: 5,
     name: 'Vodka',
-    status: 'DELIVERY',
+    status: 'DELIVERED',
     category: 'Drinks',
   },
   {
@@ -44,7 +44,7 @@ export const orders = [
   {
     id: 8,
     name: 'Bolo de Cenoura',
-    status: 'DELIVERY',
+    status: 'DELIVERED',
     category: 'Sobremesas',
   },
   {
