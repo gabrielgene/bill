@@ -5,13 +5,9 @@ import Avatar from 'material-ui/Avatar';
 import Checkbox from 'material-ui/Checkbox';
 import { Icon } from 'material-ui';
 import { compose, withStateHandlers } from 'recompose';
-import { categories, getDataByName } from '~/src/fakeData';
+import { categories, getDataByName } from '~/src/utils/fakeData';
+import { orderStatusLabel } from '~/src/utils/mapping';
 import { withIndexStyle } from './style';
-
-const mapStatus = {
-  PENDING: 'Em espera',
-  DELIVERED: 'Entregue',
-};
 
 const Order = ({ classes, name, status, category, setStatus }) => {
   const lowerCaseStatus = status.toLowerCase();
@@ -22,7 +18,7 @@ const Order = ({ classes, name, status, category, setStatus }) => {
       <Avatar className={classes[`${lowerCaseStatus}Avatar`]}>
         <Icon>{categoryData.icon}</Icon>
       </Avatar>
-      <ListItemText primary={name} secondary={mapStatus[status]} />
+      <ListItemText primary={name} secondary={orderStatusLabel[status]} />
 
       <ListItemSecondaryAction>
         <Checkbox
