@@ -16,7 +16,7 @@ const DefaultLayout = ({ classes, topBarProps, children, hideBottomBar }) => (
     <If condition={!hideBottomBar}>
       <BottomBar />
     </If>
-  </div >
+  </div>
 );
 
 export default withIndexStyle(DefaultLayout);
