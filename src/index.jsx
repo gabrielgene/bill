@@ -7,7 +7,7 @@ import green from 'material-ui/colors/green';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import Tables from './pages/waiter/tables';
+import Home from './pages/waiter/home';
 import PendingOrders from './pages/waiter/pending-orders';
 import Notifications from './pages/waiter/notifications';
 import TablePage from './pages/waiter/table';
@@ -25,7 +25,7 @@ const App = () => (
   <MuiThemeProvider theme={theme}>
     <Router>
       <div>
-        <Route exact path="/" component={Tables} />
+        <Route exact path="/" component={Home} />
         <Route path="/pedidos-pendentes" component={PendingOrders} />
         <Route path="/notificacoes" component={Notifications} />
         <Route path="/mesas/:name" component={TablePage} exact />
