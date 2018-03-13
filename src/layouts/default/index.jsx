@@ -10,7 +10,7 @@ import { withIndexStyle } from './styles';
 const DefaultLayout = ({ classes, topBarProps, children, hideBottomBar }) => (
   <div className={classes.root}>
     <TopBar {...topBarProps} />
-    <main className={classNames(classes.main, { [classes.tab]: topBarProps.nav })}>
+    <main className={classNames(classes.main, { [classes.tab]: topBarProps.navBar })}>
       {children}
     </main>
     <If condition={!hideBottomBar}>
