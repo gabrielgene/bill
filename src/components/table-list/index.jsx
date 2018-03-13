@@ -1,7 +1,7 @@
 import React from 'react';
 import List from 'material-ui/List';
 import TableItem from '~/src/components/table-item';
-import { fakeTables } from '~/src/fakeData';
+import { fakeTables } from '~/src/utils/fakeData';
 
 import { withIndexStyle } from './styles';
 

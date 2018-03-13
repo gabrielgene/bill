@@ -6,7 +6,7 @@ import Checkbox from 'material-ui/Checkbox';
 import { Icon } from 'material-ui';
 import { compose, withStateHandlers } from 'recompose';
 import { categories, getDataByName } from '~/src/utils/fakeData';
-import { orderStatusLabel } from '~/src/utils/mapping';
+import { orderStatusLabel } from '~/src/utils/mappings';
 import { withIndexStyle } from './style';
 
 const Order = ({ classes, name, status, category, setStatus }) => {
