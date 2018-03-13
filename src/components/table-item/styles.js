@@ -1,7 +1,7 @@
 import { withStyles } from 'material-ui';
 import { lightGreen, amber, deepOrange, blueGrey } from 'material-ui/colors';
 
-export const withIndexStyle = withStyles(({
+export const withIndexStyle = withStyles({
   root: { borderLeft: '3px solid' },
   idle: { color: blueGrey[500] },
   free: { color: lightGreen[500] },
@@ -11,4 +11,4 @@ export const withIndexStyle = withStyles(({
   freeAvatar: { backgroundColor: lightGreen[500] },
   waitingAvatar: { backgroundColor: amber[500] },
   callingAvatar: { backgroundColor: deepOrange[500] },
-}));
+});
