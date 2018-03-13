@@ -87,7 +87,7 @@ class TablePage extends Component {
             <Zoom
               key={idx}
               in={currentTab === idx}
-              className={classNames(currentTab === idx && classes.fabActive, classes.fab)}
+              className={classNames(classes.fab, { [classes.fabActive]: currentTab === idx })}
               timeout={transitionDuration}
               style={{
                 transitionDelay: currentTab === idx ? transitionDuration.exit : 0,
