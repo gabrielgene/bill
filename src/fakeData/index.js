@@ -59,7 +59,7 @@ export const fakeTables = [
   {
     name: 'Mesa 01',
     status: 'IDLE',
-    orders: [...orders],
+    orders,
   },
   {
     name: 'Mesa 02',
@@ -69,12 +69,12 @@ export const fakeTables = [
   {
     name: 'Mesa 03',
     status: 'WAITING',
-    orders: [...orders],
+    orders,
   },
   {
     name: 'Mesa 04',
     status: 'CALLING',
-    orders: [...orders],
+    orders,
   },
   { name: 'Mesa 05', status: 'FREE' },
   { name: 'Mesa 06', status: 'IDLE' },
