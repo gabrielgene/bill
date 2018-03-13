@@ -26,8 +26,7 @@ const statusMap = {
   },
 };
 
-const TableItem = (props) => {
-  const { name, status, classes } = props;
+const TableItem = ({ name, status, classes }) => {
   const lowerCaseStatus = status.toLowerCase();
   const { icon, label } = statusMap[lowerCaseStatus];
 
