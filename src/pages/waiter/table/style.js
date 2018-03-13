@@ -13,10 +13,13 @@ export const withIndexStyle = withStyles(theme => ({
     right: theme.spacing.unit * 2,
   },
   tabTypography: { padding: theme.spacing.unit * 3 },
-  peding: { color: amber[500] },
+  pending: { color: amber[500] },
   delivery: { color: lightGreen[500] },
   orders: {
-    padding: 0,
+    marginBottom: theme.spacing.unit * 10,
     backgroundColor: theme.palette.common.white,
   },
+  item: { borderLeft: '3px solid' },
+  deliveryAvatar: { backgroundColor: lightGreen[500] },
+  pendingAvatar: { backgroundColor: amber[500] },
 }), { withTheme: true });

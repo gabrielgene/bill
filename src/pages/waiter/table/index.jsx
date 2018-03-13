@@ -71,7 +71,7 @@ class TablePage extends Component {
     );
 
     return (
-      <DefaultLayout hideBottomBar topBarProps={{ title: name, back: true, nav: topBarNav }}>
+      <DefaultLayout hideBottomBar topBarProps={{ title: name, back: true, navBar: topBarNav }}>
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={currentTab}
@@ -79,7 +79,7 @@ class TablePage extends Component {
         >
           <Orders orders={tableData.orders} />
           <Typography component="div" dir={theme.direction} className={classes.tabTypography}>
-            Pagamentos
+            Orders
           </Typography>
         </SwipeableViews>
         <div className={classes.root}>
