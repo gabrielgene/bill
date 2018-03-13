@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom';
 
 import FlexSpacer from '~/src/components/flex-spacer';
 
-const TopBar = ({ title, action, history, back, nav }) => (
+const TopBar = ({ title, action, history, back, navBar }) => (
   <AppBar>
     <Toolbar>
       <If condition={back}>
@@ -25,7 +25,7 @@ const TopBar = ({ title, action, history, back, nav }) => (
       <FlexSpacer />
       {action}
     </Toolbar>
-    {nav}
+    {navBar}
   </AppBar>
 );
 
