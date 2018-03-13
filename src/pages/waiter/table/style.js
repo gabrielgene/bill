@@ -1,5 +1,5 @@
 import { withStyles } from 'material-ui';
-import { red } from 'material-ui/colors';
+import { lightGreen, amber } from 'material-ui/colors';
 
 export const withIndexStyle = withStyles(theme => ({
   root: {
@@ -7,15 +7,19 @@ export const withIndexStyle = withStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   fab: {
+    color: theme.palette.common.white,
     position: 'absolute',
-    bottom: theme.spacing.unit * 10,
+    bottom: theme.spacing.unit * 3,
     right: theme.spacing.unit * 2,
-    backgroundColor: red.A400,
   },
-  tabTypography: {
-    padding: theme.spacing.unit * 3,
+  tabTypography: { padding: theme.spacing.unit * 3 },
+  pending: { color: amber[500] },
+  delivery: { color: lightGreen[500] },
+  orders: {
+    marginBottom: theme.spacing.unit * 10,
+    backgroundColor: theme.palette.common.white,
   },
-  fabActive: {
-    transitionDelay: theme.transitions.duration.leavingScreen,
-  },
-}));
+  item: { borderLeft: '3px solid' },
+  deliveryAvatar: { backgroundColor: lightGreen[500] },
+  pendingAvatar: { backgroundColor: amber[500] },
+}), { withTheme: true });

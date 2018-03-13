@@ -1,7 +1,7 @@
 import { withStyles } from 'material-ui';
 
 const topbarHeight = {
-  big: 64,
+  big: 104,
   small: 56,
   tiny: 48,
 };
@@ -20,7 +20,10 @@ export const withIndexStyle = withStyles({
       paddingTop: topbarHeight.tiny,
     },
     '@media (min-width:600px)': {
-      paddingTop: topbarHeight.big,
+      paddingTop: topbarHeight.small,
     },
+  },
+  tab: {
+    paddingTop: topbarHeight.big,
   },
 });

@@ -17,7 +17,7 @@ const filters = [
   { status: 'CALLING', label: 'Solicitando atenção' },
 ];
 
-const Tables = ({
+const Home = ({
   selectedFilter, filterAnchor,
   setFilter, setFilterAnchor, unsetFilterAnchor,
 }) => {
@@ -67,4 +67,4 @@ export default compose(
       setFilter: () => e => ({ selectedFilter: e.target.dataset.value, filterAnchor: null }),
     },
   ),
-)(Tables);
+)(Home);
