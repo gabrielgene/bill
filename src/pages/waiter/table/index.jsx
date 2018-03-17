@@ -59,15 +59,6 @@ class TablePage extends Component {
       exit: theme.transitions.duration.leavingScreen,
     };
 
-    const fabs = [
-      {
-        link: `/mesas/${tableCode}/menu`,
-        className: classes.fab,
-        icon: 'add',
-        color: 'primary',
-      }
-    ];
-
     const topBarNav = (
       <Tabs
         value={currentTab}
@@ -89,28 +80,25 @@ class TablePage extends Component {
           <Payment addPayment={this.addPayment} disabled={value >= total ? false : true} />
         </SwipeableViews>
         <div className={classes.root}>
-          <For each="fab" of={fabs} index="idx">
-            <Zoom
-              key={idx}
-              in={currentTab === idx}
-              className={classNames(classes.fab, { [classes.fabActive]: currentTab === idx })}
-              timeout={transitionDuration}
-              style={{
-                transitionDelay: currentTab === idx ? transitionDuration.exit : 0,
-              }}
-              unmountOnExit
+          <Zoom
+            in={currentTab === 0}
+            className={classNames(classes.fab, { [classes.fabActive]: currentTab === 0 })}
+            timeout={transitionDuration}
+            style={{
+              transitionDelay: currentTab === 0 ? transitionDuration.exit : 0,
+            }}
+            unmountOnExit
+          >
+            <Button
+              className={classes.fab}
+              component={Link}
+              to={`/mesas/${tableCode}/menu`}
+              variant="fab"
+              color="primary"
             >
-              <Button
-                className={fab.className}
-                component={Link}
-                to={fab.link}
-                variant="fab"
-                color={fab.color}
-              >
-                <Icon>{fab.icon}</Icon>
-              </Button>
-            </Zoom>
-          </For>
+              <Icon>add</Icon>
+            </Button>
+          </Zoom>
         </div>
       </DefaultLayout>
     );
