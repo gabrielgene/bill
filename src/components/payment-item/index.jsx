@@ -3,7 +3,7 @@ import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Icon from 'material-ui/Icon';
 
 const PaymentItem = ({ icon, name, price }) => (
-  <ListItem>
+  <ListItem dense>
     <ListItemIcon>
       <Icon>{icon}</Icon>
     </ListItemIcon>
