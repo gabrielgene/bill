@@ -71,7 +71,6 @@ class Payment extends Component {
           Fechar Mesa
         </Button>
       </div>
-
     );
   }
 }
