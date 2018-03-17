@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Tabs, { Tab } from 'material-ui/Tabs';
-import Typography from 'material-ui/Typography';
 import { Link } from 'react-router-dom';
 import SwipeableViews from 'react-swipeable-views';
 import Zoom from 'material-ui/transitions/Zoom';
@@ -11,16 +10,28 @@ import autoBind from 'react-autobind';
 import DefaultLayout from '~/src/layouts/default';
 import { getDataByName, fakeTables } from '~/src/utils/fakeData';
 
-import { withIndexStyle } from './style';
 import Orders from './orders';
+import Payment from './payment';
+import { withIndexStyle } from './styles';
 
 class TablePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: 0
+      currentTab: 0,
+      value: 0,
+      total: 0,
     };
     autoBind(this);
+  }
+
+  componentWillMount() {
+    const tableCode = this.props.match.params.name;
+    const tableData = getDataByName(tableCode, fakeTables);
+    let total = this.state.total;
+    const buildTotal = (order) => total = total + order.price;
+    tableData.orders.filter(o => o.status === 'DELIVERED').forEach(buildTotal);
+    this.setState({ total });
   }
 
 
@@ -32,8 +43,12 @@ class TablePage extends Component {
     this.setState({ currentTab });
   }
 
+  addPayment(value) {
+    this.setState({ value: this.state.value + parseFloat(value) });
+  }
+
   render() {
-    const { currentTab } = this.state;
+    const { currentTab, value, total } = this.state;
     const { classes, match, theme } = this.props;
     const tableCode = match.params.name;
     const tableData = getDataByName(tableCode, fakeTables);
@@ -50,13 +65,7 @@ class TablePage extends Component {
         className: classes.fab,
         icon: 'add',
         color: 'primary',
-      },
-      {
-        link: `/link/para/menu`,
-        className: classes.fab,
-        icon: 'payment',
-        color: 'primary',
-      },
+      }
     ];
 
     const topBarNav = (
@@ -66,21 +75,18 @@ class TablePage extends Component {
         fullWidth
       >
         <Tab label="Pedidos" />
-        <Tab label="R$ 40,00" />
+        <Tab label={`R$ ${total} / R$ ${value}`} />
       </Tabs>
     );
 
     return (
       <DefaultLayout hideBottomBar topBarProps={{ title: name, back: true, navBar: topBarNav }}>
         <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={currentTab}
           onChangeIndex={this.handleSwipeChange}
         >
           <Orders orders={tableData.orders} />
-          <Typography component="div" dir={theme.direction} className={classes.tabTypography}>
-            Orders
-          </Typography>
+          <Payment addPayment={this.addPayment} disabled={value >= total ? false : true} />
         </SwipeableViews>
         <div className={classes.root}>
           <For each="fab" of={fabs} index="idx">
