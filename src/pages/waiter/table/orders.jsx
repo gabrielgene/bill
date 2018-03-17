@@ -1,7 +1,7 @@
 import React from 'react';
 import OrderItem from '~/src/components/order-item';
 import List from 'material-ui/List';
-import { withIndexStyle } from './style';
+import { withIndexStyle } from './styles';
 
 
 const Orders = ({ orders, filteredBy, classes }) => (
