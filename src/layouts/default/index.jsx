@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import TopBar from '~/src/components/topbar';
 import BottomBar from '~/src/components/bottom-bar';
-import { If } from 'babel-plugin-jsx-control-statements';
 
 import { withIndexStyle } from './styles';
 
