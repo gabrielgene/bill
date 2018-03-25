@@ -7,7 +7,7 @@ import green from 'material-ui/colors/green';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import Home from './pages/waiter/home';
+import Home from './pages/customer/home';
 import PendingOrders from './pages/waiter/pending-orders';
 import Notifications from './pages/waiter/notifications';
 import TablePage from './pages/waiter/table';
