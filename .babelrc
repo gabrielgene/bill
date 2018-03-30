@@ -3,7 +3,8 @@
   "sourceMaps": "inline",
   "plugins": [
     "jsx-control-statements",
-    "root-import"
+    "root-import",
+    "transform-object-rest-spread"
   ],
 }
 
