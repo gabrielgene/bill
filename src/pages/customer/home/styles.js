@@ -1,57 +1,26 @@
 import { withStyles } from 'material-ui';
 
-export const withIndexStyle = withStyles(theme => {
-  const spacer = theme.spacing.unit;
-  const verticalPadding = 0;
-  const horizontalPadding = spacer * 2;
-  const avatarMargin = 10;
-  const bigAvatar = 60;
+const topbarHeight = {
+  big: 64,
+  small: 56,
+  tiny: 48,
+};
 
-  return {
-    appBar: {
-      boxShadow: 'none',
-      color: 'white',
+export const withIndexStyle = withStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+  },
+  main: {
+    paddingTop: topbarHeight.small,
+    overflow: 'auto',
+    flexGrow: 1,
+    '@media (min-width:0px) and (orientation: landscape)': {
+      paddingTop: topbarHeight.tiny,
     },
-    toolbarButton: {
-      color: 'red',
-      marginLeft: '-12px',
+    '@media (min-width:600px)': {
+      paddingTop: topbarHeight.big,
     },
-    modal: {
-      position: 'absolute',
-      backgroundColor: 'white',
-      width: '100%',
-      height: '100vh',
-    },
-    modalContent: {
-      padding: `${verticalPadding}px ${horizontalPadding}px`,
-    },
-    restaurantHeader: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    restaurantHeaderTitle: {
-      width: `calc(100% - ${bigAvatar + avatarMargin + horizontalPadding}px)`,
-    },
-    restaurantName: {
-      fontSize: 36,
-    },
-    restaurantCategory: {
-      fontSize: 16,
-      color: 'grey',
-      lineHeight: 2,
-    },
-    restaurantDescription: {
-      fontSize: 16,
-    },
-    restaurantMoreInfo: {
-      color: 'red',
-    },
-    avatar: {
-      margin: 10,
-    },
-    bigAvatar: {
-      width: 60,
-      height: 60,
-    },
-  }
-}, { withTheme: true });
+  },
+});

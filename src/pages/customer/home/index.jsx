@@ -1,49 +1,30 @@
 import React from 'react';
-import Button from 'material-ui/Button';
-import autoBind from 'react-autobind';
 
-import SimpleModal from './modal';
+import TopBar from '~/src/components/topbar';
+import Banner from '~/src/components/banner';
+import RestaurantList from '~/src/components/restaurant-list';
 
-class Home extends React.Component {
+import { withIndexStyle } from './styles';
 
-  constructor(props) {
-    super(props);
-    autoBind(this);
+const categories = [
+  "5ab6d4326e53a53319622baf",
+  "5ab6d87bc77a70332cc709e2",
+];
 
-    this.state = {
-      modalOpen: false,
-    }
-  }
+const Home = ({ classes }) => {
+  declare var category;
 
-  toggleModal() {
-    this.setState({ modalOpen: !this.state.modalOpen })
-  }
+  return (
+    <div className={classes.root}>
+      <TopBar title="Bill" />
+      <main className={classes.main}>
+        <Banner />
+        <For each="category" of={categories}>
+          <RestaurantList key={category.id} category={category} />
+        </For>
+      </main>
+    </div>
+  );
+};
 
-  render() {
-    const { modalOpen } = this.state;
-
-    return (
-      <div style={{ textAlign: 'center' }}>
-        <Button
-          variant="raised"
-          color="primary"
-          size="large"
-          style={{ height: '1000px', width: '1000px' }}
-          onClick={this.toggleModal}
-        >
-          {this.state.modalOpen && 'Modal Aberto'}
-        </Button>
-        <SimpleModal
-          // open={this.state.modalOpen}
-          open
-          onClose={this.toggleModal}
-        />
-      </div>
-    );
-
-  }
-}
-
-
-
-export default Home;
+export default withIndexStyle(Home);
