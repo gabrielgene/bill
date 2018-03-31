@@ -27,12 +27,12 @@ export const withIndexStyle = withStyles(theme => {
     productTitle: {
       fontSize: 20,
       lineHeight: 1,
-      marginBottom: '8px',
+      marginBottom: theme.spacing.unit,
     },
     productDescription: {
       fontSize: 20,
       color: 'grey',
-      marginBottom: '8px',
+      marginBottom: theme.spacing.unit,
     },
     productPrice: {
       fontSize: 20,
