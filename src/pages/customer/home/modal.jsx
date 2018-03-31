@@ -6,8 +6,11 @@ import Toolbar from 'material-ui/Toolbar';
 import Icon from 'material-ui/Icon';
 import IconButton from 'material-ui/IconButton'
 import Avatar from 'material-ui/Avatar';
+import Divider from 'material-ui/Divider';
+
 import classNames from 'classnames';
 
+import ProductList from './list';
 
 import { withIndexStyle } from './styles';
 
@@ -34,9 +37,6 @@ class SimpleModal extends React.Component {
               <IconButton onClick={onClose} className={classes.toolbarButton} >
                 <Icon>close</Icon>
               </IconButton>
-              {/* <Typography variant="title" color="inherit">
-                Tokai
-              </Typography> */}
             </Toolbar>
           </AppBar>
           <div className={classes.modalContent}>
@@ -66,6 +66,8 @@ class SimpleModal extends React.Component {
               </Typography>
             </div>
           </div>
+          <Divider style={{ margin: '8px' }} />
+          <ProductList />
         </div>
       </Modal>
     );
