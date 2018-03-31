@@ -3,6 +3,7 @@ import React from 'react';
 import TopBar from '~/src/components/topbar';
 import Banner from '~/src/components/banner';
 import RestaurantList from '~/src/components/restaurant-list';
+import RestaurantView from '../restaurant-view';
 
 import { withIndexStyle } from './styles';
 
@@ -18,6 +19,7 @@ const Home = ({ classes }) => {
     <div className={classes.root}>
       <TopBar title="Bill" />
       <main className={classes.main}>
+        <RestaurantView open />
         <Banner />
         <For each="category" of={categories}>
           <RestaurantList key={category.id} category={category} />

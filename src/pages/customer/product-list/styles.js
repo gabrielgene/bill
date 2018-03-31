@@ -38,5 +38,8 @@ export const withIndexStyle = withStyles(theme => {
       fontSize: 20,
       color: 'red',
     },
+    divider: {
+      margin: theme.spacing.unit,
+    }
   };
 }, { withTheme: true });

@@ -1,7 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import ListSubheader from 'material-ui/List/ListSubheader';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import List, { ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Typography from 'material-ui/Typography';
 
@@ -130,41 +130,26 @@ const items = [
   },
 ];
 
-class ProductList extends React.Component {
-
-  constructor(props) {
-    super(props);
-    autoBind(this);
-  }
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-
-      <List className={classes.root} subheader={<li />}>
-        <For each="section" of={items}>
-          <li key={`section-${section.label}`} className={classes.listSection}>
-            <ul className={classes.ul}>
-              <ListSubheader className={classes.sectionLabel}> <strong> {section.label} </strong> </ListSubheader>
-              <Divider style={{ margin: '8px' }} />
-              <For each="product" of={section.items}>
-                <ListItem className={classes.product} key={`item-${section.label}-${product.label}`}>
-                  <Typography className={classes.productTitle} variant="product name"> {product.label} </Typography>
-                  <Typography className={classes.productDescription} variant="product description"> {product.description} </Typography>
-                  <Typography className={classes.productPrice} variant="product price"> R$ {product.price} </Typography>
-                  {/* <ListItemText primary={product.label} /> */}
-                </ListItem>
-                <Divider style={{ margin: '8px' }} />
-              </For>
-            </ul>
-          </li>
-        </For>
-      </List>
-    );
-
-  }
-}
+const ProductList = ({ classes }) => (
+  <List className={classes.root} subheader={<li />}>
+    <For each="section" of={items}>
+      <li key={`section-${section.label}`} className={classes.listSection}>
+        <ul className={classes.ul}>
+          <ListSubheader className={classes.sectionLabel}> <strong> {section.label} </strong> </ListSubheader>
+          <Divider style={{ margin: '8px' }} />
+          <For each="product" of={section.items}>
+            <ListItem className={classes.product} key={`item-${section.label}-${product.label}`}>
+              <Typography className={classes.productTitle}> {product.label} </Typography>
+              <Typography className={classes.productDescription}> {product.description} </Typography>
+              <Typography className={classes.productPrice}> R$ {product.price} </Typography>
+            </ListItem>
+            <Divider className={classes.divider} />
+          </For>
+        </ul>
+      </li>
+    </For>
+  </List>
+);
 
 
 
