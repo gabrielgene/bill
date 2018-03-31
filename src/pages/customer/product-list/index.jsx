@@ -136,7 +136,7 @@ const ProductList = ({ classes }) => (
       <li key={`section-${section.label}`} className={classes.listSection}>
         <ul className={classes.ul}>
           <ListSubheader className={classes.sectionLabel}> <strong> {section.label} </strong> </ListSubheader>
-          <Divider style={{ margin: '8px' }} />
+          <Divider className={classes.divider} />
           <For each="product" of={section.items}>
             <ListItem className={classes.product} key={`item-${section.label}-${product.label}`}>
               <Typography className={classes.productTitle}> {product.label} </Typography>
