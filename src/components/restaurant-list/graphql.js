@@ -14,3 +14,12 @@ export const queryByCategory = gql`
   }
 `;
 
+export const queryByTerm = gql`
+  query RestaurantListByQuery($term: String!) {
+    restaurants(query: $term) {
+      id
+      name
+      flyerUrl
+    }
+  }
+`;
