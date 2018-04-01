@@ -18,7 +18,7 @@ class TopbarSearch extends React.Component {
     this.state = {
       query: qs.parse(props.location.search).q || '',
     };
-    this._search = debounce(this.search, DEBOUNCE_DELAY);
+    this.search = debounce(this._search, DEBOUNCE_DELAY);
   }
 
   componentWillReceiveProps({ location }) {
@@ -28,11 +28,10 @@ class TopbarSearch extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ query: e.target.value });
-    this._search();
+    this.setState({ query: e.target.value }, this.search);
   }
 
-  search() {
+  _search() {
     const { location, history } = this.props;
 
     const path = this.state.query
