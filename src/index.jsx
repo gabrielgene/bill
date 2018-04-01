@@ -6,6 +6,7 @@ import { MuiThemeProvider } from 'material-ui/styles';
 
 import DefaultRoute from '~/src/routes/default';
 import Home from '~/src/pages/customer/home';
+import SearchPage from '~/src/pages/customer/search';
 
 import registerServiceWorker from './registerServiceWorker';
 import { apolloClient } from './apollo-client';
@@ -17,6 +18,7 @@ const App = () => (
     <ApolloProvider client={apolloClient}>
       <Router>
         <Switch>
+          <DefaultRoute path="/search" component={SearchPage} />
           <DefaultRoute path="/" component={Home} />
         </Switch>
       </Router>
