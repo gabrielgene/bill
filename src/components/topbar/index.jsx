@@ -3,12 +3,16 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
+import TopBarSearch from './search';
 import { withIndexStyle } from './styles';
 
 const TopBar = ({ classes }) => (
   <AppBar>
     <Toolbar>
       <Typography className={classes.logo} variant="title" color="primary">Bill</Typography>
+      <div className={classes.search}>
+        <TopBarSearch />
+      </div>
     </Toolbar>
   </AppBar>
 );
