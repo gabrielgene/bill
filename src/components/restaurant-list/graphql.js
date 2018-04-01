@@ -6,6 +6,7 @@ export const queryByCategory = gql`
       name
 
       restaurants {
+        id
         name
         flyerUrl
       }

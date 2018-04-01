@@ -6,12 +6,22 @@ export const withIndexStyle = withStyles(theme => ({
     justifyContent: 'center',
     padding: theme.spacing.unit * 2,
     backgroundColor: theme.palette.grey[100],
+
+    [theme.breakpoints.down('sm')]: {
+      padding: 0,
+    },
   },
+
   card: {
-    width: `calc(100% - ${theme.spacing.unit * 2}px)`,
+    width: '100%',
     maxWidth: theme.spacing.unit * 128,
     height: theme.spacing.unit * 35,
+
+    [theme.breakpoints.down('sm')]: {
+      height: theme.spacing.unit * 20,
+    },
   },
+
   cardMedia: {
     height: '100%',
   },
