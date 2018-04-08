@@ -12,6 +12,7 @@ export const theme = createMuiTheme({
     MuiToolbar: {
       root: {
         backgroundColor: grey[50],
+        color: red[500],
       },
     },
   },
