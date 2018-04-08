@@ -5,6 +5,11 @@ export const withIndexStyle = withStyles(theme => ({
     marginRight: theme.spacing.unit * 2,
   },
 
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
+  },
+
   search: {
     width: '100%',
     margin: '0 auto',
