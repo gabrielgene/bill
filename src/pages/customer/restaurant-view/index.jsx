@@ -8,8 +8,6 @@ import IconButton from 'material-ui/IconButton'
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 
-import classNames from 'classnames';
-
 import ProductList from '../product-list';
 
 import { withIndexStyle } from './styles';
@@ -37,24 +35,24 @@ const RestaurantView = ({ classes, handleClose, open }) =>  (
       <div className={classes.modalContent}>
         <div className={classes.restaurantHeader}>
           <div className={classes.restaurantHeaderTitle} >
-            <Typography noWrap className={classes.restaurantName}>
+            <Typography variant="display1" noWrap className={classes.restaurantName}>
               {fakeData.restaurantName}
             </Typography>
-            <Typography className={classes.restaurantCategory}>
+            <Typography variant="headline" className={classes.restaurantCategory}>
               {fakeData.restaurantCategory}
             </Typography>
           </div>
           <Avatar
             alt="Restaurant avatar"
             src={fakeData.restaurantImg}
-            className={classNames(classes.avatar, classes.bigAvatar)}
+            className={classes.avatar}
           />
         </div>
         <div>
-          <Typography className={classes.restaurantDescription}>
+          <Typography variant="subheading" className={classes.restaurantDescription}>
             {fakeData.restaurantDescription}
           </Typography>
-          <Typography className={classes.restaurantMoreInfo}>
+          <Typography variant="subheading" className={classes.restaurantMoreInfo}>
             Mais informações
             {/* TODO: handle click to show more info */}
           </Typography>

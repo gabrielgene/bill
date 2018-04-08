@@ -1,10 +1,11 @@
 import { withStyles } from 'material-ui';
+import { red } from 'material-ui/colors';
 
 export const withIndexStyle = withStyles(theme => {
   const spacer = theme.spacing.unit;
   const horizontalPadding = spacer * 2;
   const avatarMargin = 10;
-  const bigAvatar = 60;
+  const avatarSize = 60;
 
   return {
     appBar: {
@@ -12,7 +13,7 @@ export const withIndexStyle = withStyles(theme => {
       color: 'white',
     },
     toolbarButton: {
-      color: 'red',
+      color: red[500],
       marginLeft: '-12px',
     },
     modal: {
@@ -29,31 +30,24 @@ export const withIndexStyle = withStyles(theme => {
       alignItems: 'center',
     },
     restaurantHeaderTitle: {
-      width: `calc(100% - ${bigAvatar + avatarMargin + horizontalPadding}px)`,
+      width: `calc(100% - ${avatarSize + avatarMargin + horizontalPadding}px)`,
     },
     restaurantName: {
-      fontSize: 36,
+      color: theme.palette.text.primary,
     },
     restaurantCategory: {
-      fontSize: 16,
-      color: 'grey',
-      lineHeight: 2,
-    },
-    restaurantDescription: {
-      fontSize: 16,
+      color: theme.palette.text.secondary,
     },
     restaurantMoreInfo: {
-      color: 'red',
+      color: red[500],
     },
     avatar: {
       margin: avatarMargin,
-    },
-    bigAvatar: {
-      width: bigAvatar,
-      height: bigAvatar,
+      width: avatarSize,
+      height: avatarSize,
     },
     divider: {
       margin: theme.spacing.unit,
     }
   };
-}, { withTheme: true });
+});

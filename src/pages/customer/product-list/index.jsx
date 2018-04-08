@@ -139,9 +139,9 @@ const ProductList = ({ classes }) => (
           <Divider className={classes.divider} />
           <For each="product" of={section.items}>
             <ListItem className={classes.product} key={`item-${section.label}-${product.label}`}>
-              <Typography className={classes.productTitle}> {product.label} </Typography>
-              <Typography className={classes.productDescription}> {product.description} </Typography>
-              <Typography className={classes.productPrice}> R$ {product.price} </Typography>
+              <Typography variant="title" className={classes.productTitle}> {product.label} </Typography>
+              <Typography variant="subheading" className={classes.productDescription}> {product.description} </Typography>
+              <Typography variant="subheading" className={classes.productPrice}> R$ {product.price} </Typography>
             </ListItem>
             <Divider className={classes.divider} />
           </For>
@@ -150,7 +150,5 @@ const ProductList = ({ classes }) => (
     </For>
   </List>
 );
-
-
 
 export default withIndexStyle(ProductList);
