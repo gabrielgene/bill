@@ -1,32 +1,21 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-import TopBar from '~/src/components/topbar';
 import Banner from '~/src/components/banner';
 import RestaurantList from '~/src/components/restaurant-list';
 import RestaurantView from '../restaurant-view';
 
-import { withIndexStyle } from './styles';
-
 const categories = [
-  "5ab6d4326e53a53319622baf",
-  "5ab6d87bc77a70332cc709e2",
+  "5ac9bfe2c19dd239e8a432ee",
 ];
 
-const Home = ({ classes }) => {
-  declare var category;
+const Home = () => (
+  <div>
+    <Banner />
+    {/* <RestaurantView open /> */}
+    {categories.map(c => (<RestaurantList key={c} category={c} />))}
+    <Route path="/r/:restaurantSlug" component={RestaurantView} />
+  </div>
+);
 
-  return (
-    <div className={classes.root}>
-      <TopBar title="Bill" />
-      <main className={classes.main}>
-        <RestaurantView open />
-        <Banner />
-        <For each="category" of={categories}>
-          <RestaurantList key={category.id} category={category} />
-        </For>
-      </main>
-    </div>
-  );
-};
-
-export default withIndexStyle(Home);
+export default Home;

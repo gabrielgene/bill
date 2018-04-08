@@ -12,6 +12,7 @@ export const withIndexStyle = withStyles({
     flexDirection: 'column',
     height: '100vh',
   },
+
   main: {
     paddingTop: topbarHeight.small,
     overflow: 'auto',

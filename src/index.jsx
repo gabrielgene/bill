@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { MuiThemeProvider } from 'material-ui/styles';
 
+import DefaultRoute from '~/src/routes/default';
 import Home from '~/src/pages/customer/home';
+import SearchPage from '~/src/pages/customer/search';
 
 import registerServiceWorker from './registerServiceWorker';
 import { apolloClient } from './apollo-client';
@@ -15,9 +17,10 @@ const App = () => (
   <MuiThemeProvider theme={theme}>
     <ApolloProvider client={apolloClient}>
       <Router>
-        <div>
-          <Route path="/" component={Home} />
-        </div>
+        <Switch>
+          <DefaultRoute path="/search" component={SearchPage} />
+          <DefaultRoute path="/" component={Home} />
+        </Switch>
       </Router>
     </ApolloProvider>
   </MuiThemeProvider>

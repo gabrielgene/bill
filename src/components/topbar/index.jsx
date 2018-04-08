@@ -2,30 +2,19 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import { Icon } from 'material-ui';
-import { withRouter } from 'react-router-dom';
 
-import FlexSpacer from '~/src/components/flex-spacer';
+import TopBarSearch from './search';
+import { withIndexStyle } from './styles';
 
-const TopBar = ({ title, action, history, back, navBar }) => (
+const TopBar = ({ classes }) => (
   <AppBar>
     <Toolbar>
-      <If condition={back}>
-        <IconButton
-          color="inherit"
-          aria-label="ArrowBack"
-          onClick={() => history.goBack()}
-        >
-          <Icon>arrow_back</Icon>
-        </IconButton>
-      </If>
-      <Typography variant="title" color="inherit">{title}</Typography>
-      <FlexSpacer />
-      {action}
+      <Typography className={classes.logo} variant="title" color="primary">Bill</Typography>
+      <div className={classes.search}>
+        <TopBarSearch />
+      </div>
     </Toolbar>
-    {navBar}
   </AppBar>
 );
 
-export default withRouter(TopBar);
+export default withIndexStyle(TopBar);

@@ -6,6 +6,7 @@ export const queryByCategory = gql`
       name
 
       restaurants {
+        id
         name
         flyerUrl
       }
@@ -13,3 +14,12 @@ export const queryByCategory = gql`
   }
 `;
 
+export const queryByTerm = gql`
+  query RestaurantListByQuery($term: String!) {
+    restaurants(query: $term) {
+      id
+      name
+      flyerUrl
+    }
+  }
+`;
