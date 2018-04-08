@@ -11,7 +11,7 @@ export const withIndexStyle = withStyles(theme => ({
   card: {
     width: '100%',
     maxWidth: theme.spacing.unit * 128,
-    height: theme.spacing.unit * 35,
+    height: theme.spacing.unit * 30,
   },
 
   cardMedia: {
