@@ -7,27 +7,23 @@ import Icon from 'material-ui/Icon';
 import IconButton from 'material-ui/IconButton'
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
+import { compose } from 'recompose';
+import { graphql } from 'react-apollo';
+import { withRouter } from 'react-router-dom';
 
 import ProductList from '../product-list';
 
+import { query } from './graphql';
 import { withIndexStyle } from './styles';
 
-const fakeData = {
-  restaurantName: 'Burger do Bahiano',
-  restaurantCategory: 'Lanches',
-  restaurantDescription: 'O sabor do dendê no seu hamburguer gourmê',
-  restaurantImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP7vlOuIVWK-Z5vgTJlAh3aqivE1DubNjly3QicDgzpGAirm1u',
-};
-
-const RestaurantView = ({ classes, handleClose, open }) =>  (
+const RestaurantView = ({ classes, history, data: { restaurant = {} } }) =>  (
   <Modal
-    open={open}
-    onClose={handleClose}
+    open
   >
     <div className={classes.modal}>
       <AppBar className={classes.appBar} position="static">
         <Toolbar >
-          <IconButton onClick={handleClose} className={classes.toolbarButton} >
+          <IconButton onClick={() => history.replace('/')} className={classes.toolbarButton} >
             <Icon>close</Icon>
           </IconButton>
         </Toolbar>
@@ -36,21 +32,23 @@ const RestaurantView = ({ classes, handleClose, open }) =>  (
         <div className={classes.restaurantHeader}>
           <div className={classes.restaurantHeaderTitle} >
             <Typography variant="display1" noWrap className={classes.restaurantName}>
-              {fakeData.restaurantName}
+              {restaurant.name}
             </Typography>
-            <Typography variant="headline" className={classes.restaurantCategory}>
-              {fakeData.restaurantCategory}
-            </Typography>
+            <For each="category" of={restaurant.categories || []}>
+              <Typography variant="headline" className={classes.restaurantCategory}>
+                {category.name}
+              </Typography>
+            </For>
           </div>
           <Avatar
             alt="Restaurant avatar"
-            src={fakeData.restaurantImg}
+            src={restaurant.flyerUrl}
             className={classes.avatar}
           />
         </div>
         <div>
           <Typography variant="subheading" className={classes.restaurantDescription}>
-            {fakeData.restaurantDescription}
+            {restaurant.description}
           </Typography>
           <Typography variant="subheading" className={classes.restaurantMoreInfo}>
             Mais informações
@@ -59,9 +57,18 @@ const RestaurantView = ({ classes, handleClose, open }) =>  (
         </div>
       </div>
       <Divider className={classes.divider} />
-      <ProductList />
+      <ProductList
+        items={restaurant.items || []}
+        itemCategories={restaurant.itemCategories || []}
+      />
     </div>
   </Modal>
 );
 
-export default withIndexStyle(RestaurantView);
+export default compose(
+  withIndexStyle,
+  withRouter,
+  graphql(query, {
+    options: ({ match }) => ({ variables: match.params }),
+  }),
+)(RestaurantView);
