@@ -1,12 +1,34 @@
 import { withStyles } from 'material-ui';
 import { red } from 'material-ui/colors';
 
-export const withIndexStyle = withStyles(theme => {
-  const spacer = theme.spacing.unit;
-  const horizontalPadding = spacer * 2;
-  const avatarMargin = 10;
-  const avatarSize = 60;
+const horizontalPadding = 16;
+const avatarMargin = 10;
+const avatarSize = 60;
 
+
+export const withHeaderStyle = withStyles(theme => ({
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  title: {
+    width: `calc(100% - ${avatarSize + avatarMargin + horizontalPadding}px)`,
+  },
+  name: {
+    color: theme.palette.text.primary,
+  },
+  category: {
+    color: theme.palette.text.secondary,
+  },
+  avatar: {
+    margin: avatarMargin,
+    width: avatarSize,
+    height: avatarSize,
+  },
+}));
+
+
+export const withIndexStyle = withStyles(theme => {
   return {
     appBar: {
       boxShadow: 'none',
@@ -25,26 +47,8 @@ export const withIndexStyle = withStyles(theme => {
     modalContent: {
       padding: `0px ${horizontalPadding}px`,
     },
-    restaurantHeader: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    restaurantHeaderTitle: {
-      width: `calc(100% - ${avatarSize + avatarMargin + horizontalPadding}px)`,
-    },
-    restaurantName: {
-      color: theme.palette.text.primary,
-    },
-    restaurantCategory: {
-      color: theme.palette.text.secondary,
-    },
     restaurantMoreInfo: {
       color: red[500],
-    },
-    avatar: {
-      margin: avatarMargin,
-      width: avatarSize,
-      height: avatarSize,
     },
     divider: {
       margin: theme.spacing.unit,

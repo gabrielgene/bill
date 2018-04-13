@@ -12,11 +12,11 @@ export const query = gql`
       }
       itemCategories {
         name
-      }
-      items {
-        name
-        description
-        price
+        items {
+          name
+          description
+          price
+        }
       }
     }
   }

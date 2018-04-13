@@ -9,31 +9,30 @@ export const withIndexStyle = withStyles(theme => ({
     overflow: 'auto',
     maxHeight: theme.spacing.unit*100,
   },
-  sectionLabel: {
+  sectionName: {
     fontSize: 24,
     color: theme.palette.text.primary,
   },
-  listSection: {
-    backgroundColor: 'inherit',
-  },
-  ul: {
-    backgroundColor: 'inherit',
+  section: {
     padding: 0,
-  },
-  product: {
-    display: 'block',
-  },
-  productTitle: {
-    marginBottom: theme.spacing.unit,
-  },
-  productDescription: {
-    color: theme.palette.text.secondary,
-    marginBottom: theme.spacing.unit,
-  },
-  productPrice: {
-    color: red[500],
   },
   divider: {
     margin: theme.spacing.unit,
+  }
+}));
+
+export const withItemStyle = withStyles(theme => ({
+  root: {
+    display: 'block',
+  },
+  title: {
+    marginBottom: theme.spacing.unit,
+  },
+  description: {
+    color: theme.palette.text.secondary,
+    marginBottom: theme.spacing.unit,
+  },
+  price: {
+    color: red[500],
   }
 }));
