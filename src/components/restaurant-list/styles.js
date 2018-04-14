@@ -5,25 +5,9 @@ export const withIndexStyle = withStyles(theme => ({
     display: 'flex',
     flexWrap: 'wrap',
   },
-  category: {
-    marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit,
-  },
   restaurants: {
     marginTop: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit,
-  },
-  link: {
-    textDecoration: 'none',
-    color: theme.palette.grey[700],
-  },
-  iconSearch: {
-    marginRight: theme.spacing.unit,
-  },
-  searchInfo: {
-    display: 'flex',
-    color: theme.palette.grey[700],
-    marginBottom: theme.spacing.unit * 3,
   },
   card: {
     width: theme.spacing.unit * 36,
