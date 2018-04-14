@@ -6,8 +6,7 @@ import RestaurantList from '~/src/components/restaurant-list';
 import { withIndexStyle } from './styles';
 
 const categories = [
-  "5ab6d4326e53a53319622baf",
-  "5ab6d87bc77a70332cc709e2",
+  "5ac9bfe2c19dd239e8a432ee",
 ];
 
 const Home = ({ classes }) => (
