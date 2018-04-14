@@ -11,7 +11,7 @@ const TopBar = ({ classes }) => (
   <AppBar>
     <Toolbar>
       <Typography className={classes.logo} variant="title" color="inherit">
-        <Link className={classes.link} to="/">
+        <Link className={classes.logoLink} to="/">
           Bill
         </Link>
       </Typography>

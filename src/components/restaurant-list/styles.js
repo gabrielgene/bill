@@ -44,6 +44,7 @@ export const withIndexStyle = withStyles(theme => ({
   info: {
     display: 'flex',
     marginBottom: theme.spacing.unit,
+    whiteSpace: 'nowrap',
   },
   icon: {
     fontSize: 18,

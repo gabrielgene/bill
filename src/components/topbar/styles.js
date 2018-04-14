@@ -5,7 +5,7 @@ export const withIndexStyle = withStyles(theme => ({
     marginRight: theme.spacing.unit * 2,
   },
 
-  link: {
+  logoLink: {
     textDecoration: 'none',
     color: 'inherit',
   },
