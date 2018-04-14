@@ -4,9 +4,9 @@ import Avatar from 'material-ui/Avatar';
 
 import { withHeaderStyle } from './styles';
 
-const RestaurantHeader = ({ classes, restaurant }) =>  (
+const RestaurantHeader = ({ classes, restaurant }) => (
   <div className={classes.root}>
-    <div className={classes.title} >
+    <div className={classes.title}>
       <Typography variant="display1" noWrap className={classes.name}>
         {restaurant.name}
       </Typography>
@@ -17,7 +17,7 @@ const RestaurantHeader = ({ classes, restaurant }) =>  (
       </For>
     </div>
     <Avatar
-      alt="Restaurant avatar"
+      alt="Imagem do restaurante"
       src={restaurant.flyerUrl}
       className={classes.avatar}
     />

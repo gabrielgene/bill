@@ -2,30 +2,31 @@ import { withStyles } from 'material-ui';
 import { red } from 'material-ui/colors';
 
 const horizontalPadding = 16;
-const avatarMargin = 10;
-const avatarSize = 60;
 
-
-export const withHeaderStyle = withStyles(theme => ({
-  root: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  title: {
-    width: `calc(100% - ${avatarSize + avatarMargin + horizontalPadding}px)`,
-  },
-  name: {
-    color: theme.palette.text.primary,
-  },
-  category: {
-    color: theme.palette.text.secondary,
-  },
-  avatar: {
-    margin: avatarMargin,
-    width: avatarSize,
-    height: avatarSize,
-  },
-}));
+export const withHeaderStyle = withStyles(theme => {
+  const avatarMargin = theme.spacing.unit * 2;
+  const avatarSize = theme.spacing.unit * 8;
+  return {
+    root: {
+      display: 'flex',
+      alignItems: 'center',
+    },
+    title: {
+      width: `calc(100% - ${avatarSize + avatarMargin + horizontalPadding}px)`,
+    },
+    name: {
+      color: theme.palette.text.primary,
+    },
+    category: {
+      color: theme.palette.text.secondary,
+    },
+    avatar: {
+      margin: avatarMargin,
+      width: avatarSize,
+      height: avatarSize,
+    },
+  };
+});
 
 
 export const withIndexStyle = withStyles(theme => {

@@ -12,6 +12,7 @@ export const withIndexStyle = withStyles(theme => ({
   sectionName: {
     fontSize: 24,
     color: theme.palette.text.primary,
+    margin: `${theme.spacing.unit * 2}px 0`,
   },
   section: {
     padding: 0,

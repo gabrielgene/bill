@@ -10,9 +10,9 @@ import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
 
-import RestaurantHeader from './header';
-import ProductList from '../product-list';
+import ProductList from '~/src/pages/customer/product-list';
 
+import RestaurantHeader from './header';
 import { query } from './graphql';
 import { withIndexStyle } from './styles';
 
@@ -31,9 +31,6 @@ const RestaurantView = ({ classes, history, data: { restaurant = {} } }) =>  (
         <div>
           <Typography variant="subheading" className={classes.restaurantDescription}>
             {restaurant.description}
-          </Typography>
-          <Typography variant="subheading" className={classes.restaurantMoreInfo}>
-            Mais informações {/* TODO: break into component handle click to show more info */}
           </Typography>
         </div>
       </div>

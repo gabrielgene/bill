@@ -2,8 +2,8 @@ import React from 'react';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import ProductItem from './item';
 
+import ProductItem from './item';
 import { withIndexStyle } from './styles';
 
 const ProductList = ({ classes, itemCategories }) => (
@@ -16,7 +16,7 @@ const ProductList = ({ classes, itemCategories }) => (
           </ListSubheader>
           <Divider className={classes.divider} />
           <For each="product" of={section.items}>
-            <ProductItem item={product} />
+            <ProductItem item={product} key={`item-${product.name}`} />
             <Divider className={classes.divider} />
           </For>
         </ul>
