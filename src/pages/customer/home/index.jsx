@@ -12,7 +12,6 @@ const categories = [
 const Home = () => (
   <div>
     <Banner />
-    {/* <RestaurantView open /> */}
     {categories.map(c => (<RestaurantList key={c} category={c} />))}
     <Route path="/r/:restaurantSlug" component={RestaurantView} />
   </div>
