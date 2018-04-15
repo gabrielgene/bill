@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const queryByCategory = gql`
   query RestaurantListByCategory($category: ID!) {
-    restaurantCategory(id:$category)  {
+    restaurantCategory(id:$category) {
       name
 
       restaurants {
@@ -10,6 +10,7 @@ export const queryByCategory = gql`
         name
         slug
         flyerUrl
+        address
       }
     }
   }
@@ -22,6 +23,7 @@ export const queryByTerm = gql`
       name
       slug
       flyerUrl
+      address
     }
   }
 `;

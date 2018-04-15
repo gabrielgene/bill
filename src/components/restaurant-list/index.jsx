@@ -2,33 +2,48 @@ import React from 'react';
 import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
 import { get } from 'lodash';
-import { GridList, GridListTile, GridListTileBar, Typography } from 'material-ui';
+import { Icon, Typography } from 'material-ui';
+import Card, { CardMedia } from 'material-ui/Card';
 import { withRouter } from 'react-router-dom';
 
 import { queryByCategory, queryByTerm } from './graphql';
 import { withIndexStyle } from './styles';
 
-const cardHeight = 160;
-
 const RestaurantList = ({ classes, history, query, data: { restaurantCategory, restaurants } }) => (
   <div>
-    <Typography variant="title">{get(restaurantCategory, 'name', query)}</Typography>
-    <GridList cellHeight={cardHeight} spacing={4} className={classes.gridList}>
+    <If condition={!query}>
+      <Typography variant="title" className={classes.restaurants}>
+        {get(restaurantCategory, 'name', query)}
+      </Typography>
+    </If>
+
+    <div className={classes.root}>
       <For each="restaurant" of={get(restaurantCategory, 'restaurants', restaurants || [])}>
-        <GridListTile
-          onClick={() => history.push(`/r/${restaurant.slug}`)}
-          classes={{ root: classes.gridListTile }}
+        <Card
           key={restaurant.id}
+          className={classes.card}
+          onClick={() => history.push(`/r/${restaurant.slug}`)}
         >
-          <img src={restaurant.flyerUrl} alt={restaurant.name} />
-          <GridListTileBar
-            title={restaurant.name}
-            titlePosition="bottom"
-            className={classes.titleBar}
+          <Typography component="div" variant="title" title={restaurant.name} className={classes.cardTitle}>
+            {restaurant.name}
+          </Typography>
+          <CardMedia
+            className={classes.cardMedia}
+            image={restaurant.flyerUrl}
           />
-        </GridListTile>
+          <Typography component="div" className={classes.infoWrapper}>
+            <div className={classes.cardInfo} title={restaurant.address}>
+              <Icon className={classes.icon}>location_on</Icon>
+              <div className={classes.cardInfoAddress}>{restaurant.address}</div>
+            </div>
+            <div className={classes.cardInfo} title="Horário de funcionamento">
+              <Icon className={classes.icon}>access_time</Icon>
+              11:00 às 22:00
+            </div>
+          </Typography>
+        </Card>
       </For>
-    </GridList>
+    </div>
   </div>
 );
 
