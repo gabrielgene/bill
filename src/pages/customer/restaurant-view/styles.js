@@ -38,7 +38,7 @@ export const withIndexStyle = withStyles((theme) => {
     },
     toolbarButton: {
       color: white,
-      marginLeft: '-12px',
+      marginLeft: `-${theme.spacing.unit * 2}`,
     },
     modal: {
       position: 'absolute',
