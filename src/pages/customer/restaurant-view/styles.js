@@ -45,6 +45,11 @@ export const withIndexStyle = withStyles((theme) => {
       backgroundColor: white,
       width: '100%',
       height: '100vh',
+      [theme.breakpoints.up('md')]: {
+        width: '80%',
+        right: 0,
+        animation: 'slideIn 0.25s normal ease-in-out',
+      },
     },
     modalContent: {
       padding: `0 ${horizontalPadding}px`,
@@ -54,6 +59,10 @@ export const withIndexStyle = withStyles((theme) => {
     },
     divider: {
       margin: theme.spacing.unit,
+    },
+    ['@keyframes slideIn']: {
+      '0%': { transform: 'translateX(80%)' },
+      '100%': { transform: 'translateX(0)' }
     },
   };
 });
