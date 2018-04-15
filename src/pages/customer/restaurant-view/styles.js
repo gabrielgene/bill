@@ -49,7 +49,7 @@ export const withIndexStyle = withStyles((theme) => {
       [theme.breakpoints.up('md')]: {
         width: desktopModalWidth,
         right: 0,
-        animation: `slideIn 0.25s normal ease-in-out`,
+        animation: 'slideIn 0.25s normal ease-in-out',
       },
     },
     modalContent: {
