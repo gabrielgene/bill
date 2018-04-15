@@ -29,7 +29,7 @@ export const withHeaderStyle = withStyles(theme => {
 });
 
 
-export const withIndexStyle = withStyles(theme => {
+export const withIndexStyle = withStyles((theme) => {
   return {
     appBar: {
       boxShadow: 'none',
@@ -46,13 +46,13 @@ export const withIndexStyle = withStyles(theme => {
       height: '100vh',
     },
     modalContent: {
-      padding: `0px ${horizontalPadding}px`,
+      padding: `0 ${horizontalPadding}px`,
     },
     restaurantMoreInfo: {
       color: red[500],
     },
     divider: {
       margin: theme.spacing.unit,
-    }
+    },
   };
 });

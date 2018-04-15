@@ -19,7 +19,7 @@ export const withIndexStyle = withStyles(theme => ({
   },
   divider: {
     margin: theme.spacing.unit,
-  }
+  },
 }));
 
 export const withItemStyle = withStyles(theme => ({
@@ -35,5 +35,5 @@ export const withItemStyle = withStyles(theme => ({
   },
   price: {
     color: red[500],
-  }
+  },
 }));

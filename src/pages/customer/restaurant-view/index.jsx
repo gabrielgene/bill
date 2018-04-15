@@ -4,7 +4,7 @@ import Modal from 'material-ui/Modal';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Icon from 'material-ui/Icon';
-import IconButton from 'material-ui/IconButton'
+import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
@@ -20,8 +20,8 @@ const RestaurantView = ({ classes, history, data: { restaurant = {} } }) =>  (
   <Modal open>
     <div className={classes.modal}>
       <AppBar className={classes.appBar} position="static">
-        <Toolbar >
-          <IconButton onClick={() => history.replace('/')} className={classes.toolbarButton} >
+        <Toolbar>
+          <IconButton onClick={() => history.replace('/')} className={classes.toolbarButton}>
             <Icon>close</Icon>
           </IconButton>
         </Toolbar>
