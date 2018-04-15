@@ -16,32 +16,35 @@ import RestaurantHeader from './header';
 import { query } from './graphql';
 import { withIndexStyle } from './styles';
 
-const RestaurantView = ({ classes, history, data: { restaurant = {} } }) =>  (
-  <Modal open>
-    <div className={classes.modal}>
-      <AppBar className={classes.appBar} position="static">
-        <Toolbar>
-          <IconButton onClick={() => history.replace('/')} className={classes.toolbarButton}>
-            <Icon>close</Icon>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.modalContent}>
-        <RestaurantHeader restaurant={restaurant} />
-        <div>
-          <Typography variant="subheading" className={classes.restaurantDescription}>
-            {restaurant.description}
-          </Typography>
+const RestaurantView = ({ classes, history, data: { restaurant = {} } }) =>  {
+  const onClose = () => history.replace('/');
+  return (
+    <Modal open onClose={onClose}>
+      <div className={classes.modal}>
+        <AppBar className={classes.appBar} position="static">
+          <Toolbar>
+            <IconButton onClick={onClose} className={classes.toolbarButton}>
+              <Icon>close</Icon>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <div className={classes.modalContent}>
+          <RestaurantHeader restaurant={restaurant} />
+          <div>
+            <Typography variant="subheading" className={classes.restaurantDescription}>
+              {restaurant.description}
+            </Typography>
+          </div>
         </div>
+        <Divider className={classes.divider} />
+        <ProductList
+          items={restaurant.items || []}
+          itemCategories={restaurant.itemCategories || []}
+        />
       </div>
-      <Divider className={classes.divider} />
-      <ProductList
-        items={restaurant.items || []}
-        itemCategories={restaurant.itemCategories || []}
-      />
-    </div>
-  </Modal>
-);
+    </Modal>
+  );
+};
 
 export default compose(
   withIndexStyle,

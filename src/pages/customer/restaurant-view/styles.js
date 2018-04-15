@@ -30,18 +30,19 @@ export const withHeaderStyle = withStyles(theme => {
 
 
 export const withIndexStyle = withStyles((theme) => {
+  const { white } = theme.palette.common;
   return {
     appBar: {
       boxShadow: 'none',
-      color: 'white',
+      color: white,
     },
     toolbarButton: {
-      color: red[500],
+      color: white,
       marginLeft: '-12px',
     },
     modal: {
       position: 'absolute',
-      backgroundColor: 'white',
+      backgroundColor: white,
       width: '100%',
       height: '100vh',
     },
