@@ -3,18 +3,23 @@ import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
 import { get } from 'lodash';
 import { GridList, GridListTile, GridListTileBar, Typography } from 'material-ui';
+import { withRouter } from 'react-router-dom';
 
 import { queryByCategory, queryByTerm } from './graphql';
 import { withIndexStyle } from './styles';
 
 const cardHeight = 160;
 
-const RestaurantList = ({ classes, query, data: { category, restaurants } }) => (
+const RestaurantList = ({ classes, history, query, data: { restaurantCategory, restaurants } }) => (
   <div>
-    <Typography variant="title">{get(category, 'name', query)}</Typography>
+    <Typography variant="title">{get(restaurantCategory, 'name', query)}</Typography>
     <GridList cellHeight={cardHeight} spacing={4} className={classes.gridList}>
-      <For each="restaurant" of={get(category, 'restaurants', restaurants || [])}>
-        <GridListTile classes={{ root: classes.gridListTile }} key={restaurant.id}>
+      <For each="restaurant" of={get(restaurantCategory, 'restaurants', restaurants || [])}>
+        <GridListTile
+          onClick={() => history.push(`/r/${restaurant.slug}`)}
+          classes={{ root: classes.gridListTile }}
+          key={restaurant.id}
+        >
           <img src={restaurant.flyerUrl} alt={restaurant.name} />
           <GridListTileBar
             title={restaurant.name}
@@ -29,6 +34,7 @@ const RestaurantList = ({ classes, query, data: { category, restaurants } }) => 
 
 export default compose(
   withIndexStyle,
+  withRouter,
   graphql(queryByCategory, {
     options: ({ category }) => ({ variables: { category } }),
     skip: ({ category }) => !category,
