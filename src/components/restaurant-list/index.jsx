@@ -4,11 +4,12 @@ import { graphql } from 'react-apollo';
 import { get } from 'lodash';
 import { Icon, Typography } from 'material-ui';
 import Card, { CardMedia } from 'material-ui/Card';
+import { withRouter } from 'react-router-dom';
 
 import { queryByCategory, queryByTerm } from './graphql';
 import { withIndexStyle } from './styles';
 
-const RestaurantList = ({ classes, query, data: { restaurantCategory, restaurants } }) => (
+const RestaurantList = ({ classes, history, query, data: { restaurantCategory, restaurants } }) => (
   <div>
     <If condition={!query}>
       <Typography variant="title" className={classes.restaurants}>
@@ -18,7 +19,11 @@ const RestaurantList = ({ classes, query, data: { restaurantCategory, restaurant
 
     <div className={classes.root}>
       <For each="restaurant" of={get(restaurantCategory, 'restaurants', restaurants || [])}>
-        <Card key={restaurant.id} className={classes.card}>
+        <Card
+          key={restaurant.id}
+          className={classes.card}
+          onClick={() => history.push(`/r/${restaurant.slug}`)}
+        >
           <Typography component="div" variant="title" title={restaurant.name} className={classes.cardTitle}>
             {restaurant.name}
           </Typography>
@@ -44,6 +49,7 @@ const RestaurantList = ({ classes, query, data: { restaurantCategory, restaurant
 
 export default compose(
   withIndexStyle,
+  withRouter,
   graphql(queryByCategory, {
     options: ({ category }) => ({ variables: { category } }),
     skip: ({ category }) => !category,

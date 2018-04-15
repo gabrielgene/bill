@@ -8,6 +8,7 @@ export const queryByCategory = gql`
       restaurants {
         id
         name
+        slug
         flyerUrl
         address
       }
@@ -20,6 +21,7 @@ export const queryByTerm = gql`
     restaurants(query: $term) {
       id
       name
+      slug
       flyerUrl
       address
     }
