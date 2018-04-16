@@ -16,14 +16,14 @@ class TopbarSearch extends React.Component {
     super(props);
     autoBind(this);
     this.state = {
-      query: qs.parse(props.location.search).q || '',
+      query: qs.parse(props.location.search.slice(1)).q || '',
     };
     this.search = debounce(this._search, DEBOUNCE_DELAY);
   }
 
   componentWillReceiveProps({ location }) {
     this.setState({
-      query: qs.parse(location.search).q || '',
+      query: qs.parse(location.search.slice(1)).q || '',
     });
   }
 

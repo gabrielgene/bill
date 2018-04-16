@@ -10,7 +10,7 @@ import RestaurantList from '~/src/components/restaurant-list';
 import { withIndexStyle } from './styles';
 
 const SearchPage = ({ location: { search }, classes }) => {
-  const query = qs.parse(search).q || '';
+  const query = qs.parse(search.slice(1)).q || '';
   return (
     <div className={classes.root}>
       <Typography variant="body2" component="div" className={classes.category}>
