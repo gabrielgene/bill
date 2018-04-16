@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
+import { get } from 'lodash';
 
 import { withHeaderStyle } from './styles';
 
@@ -18,7 +19,7 @@ const RestaurantHeader = ({ classes, restaurant }) => (
     </div>
     <Avatar
       alt="Imagem do restaurante"
-      src={restaurant.flyerUrl}
+      src={get(restaurant, 'flyer.url')}
       className={classes.avatar}
     />
   </div>

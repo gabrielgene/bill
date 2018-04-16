@@ -29,7 +29,7 @@ const RestaurantList = ({ classes, history, query, data: { restaurantCategory, r
           </Typography>
           <CardMedia
             className={classes.cardMedia}
-            image={restaurant.flyerUrl}
+            image={get(restaurant, 'flyer.url')}
           />
           <Typography component="div" className={classes.infoWrapper}>
             <div className={classes.cardInfo} title={restaurant.address}>
