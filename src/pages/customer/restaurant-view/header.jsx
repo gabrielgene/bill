@@ -19,7 +19,7 @@ const RestaurantHeader = ({ classes, restaurant }) => (
     </div>
     <Avatar
       alt="Imagem do restaurante"
-      src={get(restaurant, 'flyer.url', null)}
+      src={get(restaurant, 'flyer.url')}
       className={classes.avatar}
     />
   </div>
