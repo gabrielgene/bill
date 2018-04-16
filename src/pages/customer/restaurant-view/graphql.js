@@ -6,8 +6,10 @@ export const query = gql`
       name
       slug
       description
-      flyerUrl
-      categories {
+      flyer {
+        src
+      }
+      category {
         name
       }
       itemCategories {

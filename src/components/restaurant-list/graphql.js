@@ -9,8 +9,10 @@ export const queryByCategory = gql`
         id
         name
         slug
-        flyerUrl
         address
+        flyer {
+          src
+        }
       }
     }
   }
@@ -22,8 +24,10 @@ export const queryByTerm = gql`
       id
       name
       slug
-      flyerUrl
       address
+      flyer {
+        src
+      }
     }
   }
 `;
