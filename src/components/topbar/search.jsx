@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import qs from 'query-string';
+import qs from 'qs';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router';
 import { debounce } from  'lodash';

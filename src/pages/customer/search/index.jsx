@@ -1,5 +1,5 @@
 import React from 'react';
-import qs from 'query-string';
+import qs from 'qs';
 import { withRouter } from 'react-router';
 import { compose } from 'recompose';
 import { Icon, Typography } from 'material-ui';
