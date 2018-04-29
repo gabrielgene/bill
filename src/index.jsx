@@ -1,30 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ApolloProvider } from 'react-apollo';
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import DefaultRoute from '~/src/routes/default';
-import Home from '~/src/pages/customer/home';
-import SearchPage from '~/src/pages/customer/search';
+import Landing from '~/src/pages/cardape/landing';
+import RestaurantMenu from '~/src/pages/customer/restaurant-menu';
 
 import registerServiceWorker from './registerServiceWorker';
-import { apolloClient } from './apollo-client';
 import { theme } from './theme';
 import './index.css';
 
 const App = () => (
   <MuiThemeProvider theme={theme}>
-    <ApolloProvider client={apolloClient}>
-      <Router>
-        <Switch>
-          <DefaultRoute path="/search" component={SearchPage} />
-          <DefaultRoute path="/" component={Home} />
-        </Switch>
-      </Router>
-    </ApolloProvider>
+    <Router>
+      <div>
+        <Route exact path='/' component={Landing} />
+        <Route path='/brazero' component={RestaurantMenu} />
+      </div>
+    </Router>
   </MuiThemeProvider>
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();
