@@ -16,7 +16,7 @@ export const withIndexStyle = withStyles(theme => ({
   title: {
     display: 'flex',
     alignItems: 'center',
-    width: theme.spacing.unit*9,
+    width: theme.spacing.unit*17,
   },
   titleImage: {
     height: theme.spacing.unit*6,
