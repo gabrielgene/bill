@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { MuiThemeProvider } from 'material-ui/styles';
 
 import RestaurantMenu from '~/src/pages/customer/restaurant-menu';
@@ -12,10 +12,10 @@ import './index.css';
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <Router>
-      <div>
-        <Route exact path='/' render={() => <Redirect to="/brazero" />} />
+      <Switch>
         <Route path='/brazero' component={RestaurantMenu} />
-      </div>
+        <Redirect to="/brazero" />
+      </Switch>
     </Router>
   </MuiThemeProvider>
 );
