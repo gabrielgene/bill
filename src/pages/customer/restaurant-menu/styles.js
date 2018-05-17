@@ -51,8 +51,8 @@ export const withIndexStyle = withStyles(theme => ({
 export const withMenuItemStyles = withStyles(theme => ({
   img: {
     height: theme.spacing.unit * 8,
+    border: '1px solid #cccccc',
   },
-
   dash: {
     textDecoration: 'line-through',
   },
