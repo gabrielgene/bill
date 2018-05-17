@@ -5,7 +5,6 @@ export const items = [
     url: 'https://untappd.akamaized.net/site/beer_logos/beer-1048981_33790_sm.jpeg',
     brand: 'Mindu',
     price: 31.9,
-    promo: 30.1,
   },
   {
     id: 2,
