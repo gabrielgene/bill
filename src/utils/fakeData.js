@@ -4,54 +4,63 @@ export const orders = [
     name: 'Skol Beats',
     status: 'PENDING',
     category: 'Cervejas',
+    price: 7,
   },
   {
     id: 2,
     name: 'KFC',
     status: 'DELIVERED',
     category: 'Fast Food',
+    price: 20,
   },
   {
     id: 3,
     name: 'Skol Beats',
     status: 'PENDING',
     category: 'Cervejas',
+    price: 7,
   },
   {
     id: 4,
     name: 'Torta de Presunto',
     status: 'PENDING',
     category: 'Tortas',
+    price: 15,
   },
   {
     id: 5,
     name: 'Vodka',
     status: 'DELIVERED',
     category: 'Drinks',
+    price: 35,
   },
   {
     id: 6,
     name: 'Pizza',
     status: 'PENDING',
     category: 'Fast Food',
+    price: 40,
   },
   {
     id: 7,
     name: 'Pizza',
     status: 'PENDING',
     category: 'Fast Food',
+    price: 30,
   },
   {
     id: 8,
     name: 'Bolo de Cenoura',
     status: 'DELIVERED',
     category: 'Sobremesas',
+    price: 19.30,
   },
   {
     id: 9,
     name: 'Torta de Presunto',
     status: 'PENDING',
     category: 'Tortas',
+    price: 30.40
   },
 ];
 

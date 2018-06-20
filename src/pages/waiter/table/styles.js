@@ -12,7 +12,6 @@ export const withIndexStyle = withStyles(theme => ({
     bottom: theme.spacing.unit * 3,
     right: theme.spacing.unit * 2,
   },
-  tabTypography: { padding: theme.spacing.unit * 3 },
   pending: { color: amber[500] },
   delivery: { color: lightGreen[500] },
   orders: {
@@ -22,4 +21,8 @@ export const withIndexStyle = withStyles(theme => ({
   item: { borderLeft: '3px solid' },
   deliveryAvatar: { backgroundColor: lightGreen[500] },
   pendingAvatar: { backgroundColor: amber[500] },
+
+  payment: { padding: theme.spacing.unit * 2 },
+  paymentButton: { marginTop: theme.spacing.unit * 2 },
+  paymentList: { marginTop: theme.spacing.unit * 2 },
 }), { withTheme: true });
